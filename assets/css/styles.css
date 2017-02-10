@@ -1,0 +1,156 @@
+/* helpers */
+.p10{
+    padding: 10px;
+}
+.p20{
+    padding: 20px;
+}
+.p30{
+    padding: 30px;
+}
+.pL10{
+    padding-left: 10px
+}
+.pL20{
+    padding-left: 20px
+}
+.pL30{
+    padding-left: 30px
+}
+.pR10{
+    padding-right: 10px
+}
+.pR20{
+    padding-right: 20px
+}
+.pR30{
+    padding-right: 30px
+}
+.pT25{
+    padding-top: 25px;
+}
+.pT40{
+    padding-top: 40px;
+}
+.m10{
+    margin: 10px;
+}
+.m20{
+    margin: 20px;
+}
+.m30{
+    margin: 30px;
+}
+.mT10{
+    margin-top: 10px;
+}
+.mT20{
+    margin-top: 20px;
+}
+.mT30{
+    margin-top: 30px;
+}
+.mT40{
+    margin-top: 40px;
+}
+.mT50{
+    margin-top: 50px;
+}
+.mB20{
+    margin-bottom: 20px;
+}
+
+.inline{
+    display: inline;
+}
+.brown{
+    background: #343434;
+}
+.grey{
+    background: #BFBFBF;
+}
+
+.greenBg{
+    background: #067e55;
+}
+.greenCo{
+    color: #067e55;
+}
+
+.height120{
+    height: 120px;
+}
+.height150{
+    height: 150px;
+}
+.row_valign{
+    display: table;
+}
+.div_valign{
+    float: none;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+h1{
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+}
+.header_triangle{
+    position: relative;
+}
+.header_triangle:after{
+    content:"";
+    position: absolute;
+    width:0;
+    height:0;
+    border-top: 120px solid transparent;
+    /* border-bottom:20px solid transparent; */
+    border-left: 50px solid #343434;
+    top: 0;
+    right: -50px;
+    z-index: 1000;
+}
+.heading{
+    font-size: 24px;
+    font-weight: bold;
+}
+ul.benchmark{
+    padding-left: 15px;
+}
+.job_title{
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+.benchmark_label{
+    font-size: 18px;
+    font-weight: bold;
+    /* background: #067e55; */
+    color: #fff;
+    padding: 5px;
+}
+
+
+
+/* sliders */
+.noUi-marker-horizontal.noUi-marker-large{
+    height: 12px;
+}
+
+
+
+/* media queries */
+@media screen and (max-width: 768px){
+    .header_triangle:after{
+        display: none;
+    }
+    .float_valign, .div_valign{
+        display: block;
+        float: none;
+    }
+
+}
