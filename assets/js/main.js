@@ -478,6 +478,19 @@
         });
     });
 
+    $('#sq_wrapper_btn').on('click', function(e){
+        e.preventDefault();
+        $('#sq_wrapper').slideToggle();
+    });
+    $('#wpp_wrapper_btn').on('click', function(e){
+        e.preventDefault();
+        $('#wpp_wrapper').slideToggle();
+    });
+    $('#wva_wrapper_btn').on('click', function(e){
+        e.preventDefault();
+        $('#wva_wrapper').slideToggle();
+    });
+
 
 
 
