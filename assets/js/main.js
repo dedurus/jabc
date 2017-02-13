@@ -8,15 +8,41 @@
         '75': [75],
         'max': [99]
     };
+    var wpp_sliders = {
+        'min': [1],
+        '20': [20],
+        '40': [40],
+        '60': [60],
+        '80': [80],
+        'max': [99]
+    };
 
+    // SQ dom elements
+    var slider_1 = document.getElementById('sq_1'),
+        slider_2 = document.getElementById('sq_2'),
+        slider_3 = document.getElementById('sq_3'),
+        slider_4 = document.getElementById('sq_4'),
+        slider_5 = document.getElementById('sq_5'),
+        slider_6 = document.getElementById('sq_6');
 
-    var slider_1 = document.getElementById('sq_1');
-    var slider_2 = document.getElementById('sq_2');
-    var slider_3 = document.getElementById('sq_3');
-    var slider_4 = document.getElementById('sq_4');
-    var slider_5 = document.getElementById('sq_5');
-    var slider_6 = document.getElementById('sq_6');
+    // WPP dom elements
+    var wpp_slider_1 = document.getElementById('wpp_1'),
+        wpp_slider_2 = document.getElementById('wpp_2'),
+        wpp_slider_3 = document.getElementById('wpp_3'),
+        wpp_slider_4 = document.getElementById('wpp_4'),
+        wpp_slider_5 = document.getElementById('wpp_5'),
+        wpp_slider_6 = document.getElementById('wpp_6');
+        wpp_slider_7 = document.getElementById('wpp_7');
 
+    // WVA dom elements
+    var wva_slider_1 = document.getElementById('wva_1'),
+        wva_slider_2 = document.getElementById('wva_2'),
+        wva_slider_3 = document.getElementById('wva_3'),
+        wva_slider_4 = document.getElementById('wva_4'),
+        wva_slider_5 = document.getElementById('wva_5'),
+        wva_slider_6 = document.getElementById('wva_6');
+
+    // SQ Sliders
     noUiSlider.create(slider_1, {
         start: [25, 75],
         connect: true,
@@ -96,22 +122,232 @@
             })
     });
 
-    $('#sq_1 .noUi-connect').css('background', '#067e55');
+    // SQ Colors
+    /*$('#sq_1 .noUi-connect').css('background', '#067e55');
     $('#sq_2 .noUi-connect').css('background', '#068846');
     $('#sq_3 .noUi-connect').css('background', '#069241');
     $('#sq_4 .noUi-connect').css('background', '#069C2D');
     $('#sq_5 .noUi-connect').css('background', '#06A61E');
-    $('#sq_6 .noUi-connect').css('background', '#06B00F');
+    $('#sq_6 .noUi-connect').css('background', '#06B00F');*/
+
+    // WPP Colors
+    /*$('#wpp_1 .noUi-connect').css('background', '#E36C09');
+    $('#wpp_2 .noUi-connect').css('background', '#E35809');
+    $('#wpp_3 .noUi-connect').css('background', '#E34409');
+    $('#wpp_4 .noUi-connect').css('background', '#E33009');
+    $('#wpp_5 .noUi-connect').css('background', '#E31C09');
+    $('#wpp_6 .noUi-connect').css('background', '#E30809');
+    $('#wpp_7 .noUi-connect').css('background', '#E30809');*/
+
+    // WVA Colors
+    /*$('#wva_1 .noUi-connect').css('background', '#E36C09');
+    $('#wva_2 .noUi-connect').css('background', '#E35809');
+    $('#wva_3 .noUi-connect').css('background', '#E34409');
+    $('#wva_4 .noUi-connect').css('background', '#E33009');
+    $('#wva_5 .noUi-connect').css('background', '#E31C09');
+    $('#wva_6 .noUi-connect').css('background', '#E30809');*/
+
+
+    //WPP Sliders ====
+    noUiSlider.create(wpp_slider_1, {
+        start: [20, 80],
+        connect: true,
+        range: wpp_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+        },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+        })
+    });
+    noUiSlider.create(wpp_slider_2, {
+        start: [20, 80],
+        connect: true,
+        range: wpp_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+        },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+        })
+    });
+    noUiSlider.create(wpp_slider_3, {
+        start: [20, 80],
+        connect: true,
+        range: wpp_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+        },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+        })
+    });
+    noUiSlider.create(wpp_slider_4, {
+        start: [20, 80],
+        connect: true,
+        range: wpp_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+        },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+        })
+    });
+    noUiSlider.create(wpp_slider_5, {
+        start: [20, 80],
+        connect: true,
+        range: wpp_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+        },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+        })
+    });
+    noUiSlider.create(wpp_slider_6, {
+        start: [20, 80],
+        connect: true,
+        range: wpp_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+        },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+        })
+    });
+    noUiSlider.create(wpp_slider_7, {
+        start: [20, 80],
+        connect: true,
+        range: wpp_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+        },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+        })
+    });
+
+    // WVa Sliders
+    noUiSlider.create(wva_slider_1, {
+        start: [25, 75],
+        connect: true,
+        range: sq_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+        },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+        })
+    });
+    noUiSlider.create(wva_slider_2, {
+        start: [25, 75],
+        connect: true,
+        range: sq_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+            },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+            })
+    });
+    noUiSlider.create(wva_slider_3, {
+        start: [25, 75],
+        connect: true,
+        range: sq_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+            },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+            })
+    });
+    noUiSlider.create(wva_slider_4, {
+        start: [25, 75],
+        connect: true,
+        range: sq_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+            },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+            })
+    });
+    noUiSlider.create(wva_slider_5, {
+        start: [25, 75],
+        connect: true,
+        range: sq_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+            },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+            })
+    });
+    noUiSlider.create(wva_slider_6, {
+        start: [25, 75],
+        connect: true,
+        range: sq_sliders,
+        pips: {
+                mode: 'range',
+                density: 1
+            },
+        tooltips: true,
+        format: wNumb({
+                decimals: 0
+            })
+    });
 
 
 
-
+    // SQ update
     update_fields('sq_1');
     update_fields('sq_2');
     update_fields('sq_3');
     update_fields('sq_4');
     update_fields('sq_5');
     update_fields('sq_6');
+
+
+    // WPP update
+    update_fields('wpp_1');
+    update_fields('wpp_2');
+    update_fields('wpp_3');
+    update_fields('wpp_4');
+    update_fields('wpp_5');
+    update_fields('wpp_6');
+    update_fields('wpp_7');
+
+    // WVA update
+    update_fields('wva_1');
+    update_fields('wva_2');
+    update_fields('wva_3');
+    update_fields('wva_4');
+    update_fields('wva_5');
+    update_fields('wva_6');
 
 
 
@@ -148,13 +384,21 @@
     function prepare_sequence(seq_wrapper_id){
 
         var text = $('.' + seq_wrapper_id + '_sequences').text().trim();
-            $('#sq_hidden').val(text);
-            //$('#' + seq_wrapper_id + '_hidden').val(text);
-        /*var btn = $('.' + seq_wrapper_id).closest('.sequences').find('.btn');
-
-        btn.attr('data-clipboard-text', text);*/
+            //$('#sq_hidden').val(text);
+            $('#' + seq_wrapper_id + '_hidden').val(text);
+        //var btn = $('.' + seq_wrapper_id).closest('.sequences').find('.btn');
+        //console.log($('#sq_hidden').val());
+        //btn.attr('data-clipboard-text', text);
 
     }
+
+    // onload (default) value
+    var default_sq = $('.sq_sequences').text().trim();
+    var default_wpp = $('.wpp_sequences').text().trim();
+    var default_wva = $('.wva_sequences').text().trim();
+    $('#sq_hidden').val(default_sq);
+    $('#wpp_hidden').val(default_wpp);
+    $('#wva_hidden').val(default_wva);
 
     // clipping
     var clipboard = new Clipboard('#btn_sq', {
@@ -163,7 +407,7 @@
         }
     });
     clipboard.on('success', function(e) {
-        console.log(e.trigger);
+        //console.log(e.trigger);
        showTooltip(e.trigger, 'Copied!');
     });
 
@@ -171,6 +415,41 @@
         console.error('Trigger:', e.trigger);
         showTooltip(e.trigger, fallbackMessage(e.action));
     });
+
+    // wpp clipboard
+    var clipboard_wpp = new Clipboard('#btn_wpp', {
+        text: function() {
+            return document.getElementById('wpp_hidden').value;
+        }
+    });
+    clipboard_wpp.on('success', function(e) {
+        //console.log(e.trigger);
+       showTooltip(e.trigger, 'Copied!');
+    });
+
+    clipboard_wpp.on('error', function(e) { console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        showTooltip(e.trigger, fallbackMessage(e.action));
+    });
+
+    // wpp clipboard
+    var clipboard_wva = new Clipboard('#btn_wva', {
+        text: function() {
+            return document.getElementById('wva_hidden').value;
+        }
+    });
+    clipboard_wpp.on('success', function(e) {
+        //console.log(e.trigger);
+       showTooltip(e.trigger, 'Copied!');
+    });
+
+    clipboard_wpp.on('error', function(e) { console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        showTooltip(e.trigger, fallbackMessage(e.action));
+    });
+
+
+    // Clipboard helpers ---
 
     function showTooltip(elem, msg) {
         $(elem).addClass('tooltipped tooltipped-s');
@@ -186,5 +465,20 @@
         if (/iPhone|iPad/i.test(navigator.userAgent)) { actionMsg = 'No support :('; } else if (/Mac/i.test(navigator.userAgent)) { actionMsg = 'Press ⌘-' + actionKey + ' to ' + action; } else { actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action; }
         return actionMsg;
     }
+
+    $('#footer_btn').on('click', function(e){
+        e.preventDefault();
+        //$('#collapse_footer').toggleClass('footer-collapsed');
+        $('#collapse_footer').toggleClass('footer-collapsed').promise().done(function() {
+            if( $('#footer_btn_icon').hasClass('glyphicon-chevron-down') ) {
+                $('#footer_btn_icon').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+            }else{
+                $('#footer_btn_icon').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+            }
+        });
+    });
+
+
+
 
 })();
