@@ -168,6 +168,15 @@ ul.benchmark{
     padding: 5px;
     margin-top: 10px;
 }
+#sq_wrapper_btn .greenBg:hover{
+    background: rgba(6,126,85,0.9);
+}
+#wpp_wrapper_btn .blueBg:hover{
+    background: rgba(58,123,189,0.9);
+}
+#wva_wrapper_btn .orangeBg:hover{
+    background: rgba(227,108,9, 0.9);
+}
 p.sq_seq_txt{
     background:  #067e55;
     font-size: 16px;
