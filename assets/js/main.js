@@ -241,7 +241,7 @@
         })
     });
 
-    // WVa Sliders
+    // WVA Sliders
     noUiSlider.create(wva_slider_1, {
         start: [25, 75],
         connect: true,
@@ -349,9 +349,6 @@
     update_fields('wva_5');
     update_fields('wva_6');
 
-
-
-
     // functions
     function update_fields(slider_id){
         var current_slider = document.getElementById(slider_id),
@@ -370,13 +367,14 @@
         });
 
         current_slider.noUiSlider.on('slide', function(value, handle){
-            $('#' + slider_id + '_' + handle).addClass('form-control_focused');
+            $('#' + slider_id + '_' + handle).addClass('form-control_focused_' + handle);
             $('#' + slider_id + '_' + handle + '_' + handle).addClass('redCo');
         });
 
         // prepare sequence for copying
-        current_slider.noUiSlider.on('end', function(vallue, handle){
-            $('#' + slider_id + '_' + handle).removeClass('form-control_focused');
+        // and remove stylings to addded to elements while sliding
+        current_slider.noUiSlider.on('end', function(value, handle){
+            $('#' + slider_id + '_' + handle).removeClass('form-control_focused_' + handle);
             $('#' + slider_id + '_' + handle + '_' + handle).removeClass('redCo');
             var sq = slider_id.split('_');
             prepare_sequence(sq[0]);
@@ -384,14 +382,9 @@
     }
 
     function prepare_sequence(seq_wrapper_id){
-
         var text = $('.' + seq_wrapper_id + '_sequences').text().trim();
             //$('#sq_hidden').val(text);
             $('#' + seq_wrapper_id + '_hidden').val(text);
-        //var btn = $('.' + seq_wrapper_id).closest('.sequences').find('.btn');
-        //console.log($('#sq_hidden').val());
-        //btn.attr('data-clipboard-text', text);
-
     }
 
     // onload (default) value
@@ -470,7 +463,6 @@
 
     $('#footer_btn').on('click', function(e){
         e.preventDefault();
-        //$('#collapse_footer').toggleClass('footer-collapsed');
         $('#collapse_footer').toggleClass('footer-collapsed').promise().done(function() {
             if( $('#footer_btn_icon').hasClass('glyphicon-chevron-down') ) {
                 $('#footer_btn_icon').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
@@ -492,8 +484,4 @@
         e.preventDefault();
         $('#wva_wrapper').slideToggle();
     });
-
-
-
-
 })();
