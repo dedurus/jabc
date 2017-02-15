@@ -367,15 +367,21 @@
         });
 
         current_slider.noUiSlider.on('slide', function(value, handle){
+            var seq_view = slider_id.split('_')[0];
             $('#' + slider_id + '_' + handle).addClass('form-control_focused_' + handle);
             $('#' + slider_id + '_' + handle + '_' + handle).addClass('redCo');
+            $('.' + seq_view + '_sequences').addClass('redBorder');
+            console.log(slider_id);
+            console.log($('.' + slider_id + '_sequences'));
         });
 
         // prepare sequence for copying
         // and remove stylings to addded to elements while sliding
         current_slider.noUiSlider.on('end', function(value, handle){
+            var seq_view = slider_id.split('_')[0];
             $('#' + slider_id + '_' + handle).removeClass('form-control_focused_' + handle);
             $('#' + slider_id + '_' + handle + '_' + handle).removeClass('redCo');
+            $('.' + seq_view + '_sequences').removeClass('redBorder');
             var sq = slider_id.split('_');
             prepare_sequence(sq[0]);
         });
