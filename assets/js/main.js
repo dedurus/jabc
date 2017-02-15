@@ -370,11 +370,13 @@
         });
 
         current_slider.noUiSlider.on('slide', function(value, handle){
+            $('#' + slider_id + '_' + handle).addClass('form-control_focused');
             $('#' + slider_id + '_' + handle + '_' + handle).addClass('redCo');
         });
 
         // prepare sequence for copying
         current_slider.noUiSlider.on('end', function(vallue, handle){
+            $('#' + slider_id + '_' + handle).removeClass('form-control_focused');
             $('#' + slider_id + '_' + handle + '_' + handle).removeClass('redCo');
             var sq = slider_id.split('_');
             prepare_sequence(sq[0]);
@@ -438,12 +440,12 @@
             return document.getElementById('wva_hidden').value;
         }
     });
-    clipboard_wpp.on('success', function(e) {
+    clipboard_wva.on('success', function(e) {
         //console.log(e.trigger);
        showTooltip(e.trigger, 'Copied!');
     });
 
-    clipboard_wpp.on('error', function(e) { console.error('Action:', e.action);
+    clipboard_wva.on('error', function(e) { console.error('Action:', e.action);
         console.error('Trigger:', e.trigger);
         showTooltip(e.trigger, fallbackMessage(e.action));
     });
@@ -452,10 +454,10 @@
     // Clipboard helpers ---
 
     function showTooltip(elem, msg) {
-        $(elem).addClass('tooltipped tooltipped-s');
+        $(elem).addClass('tooltipped tooltipped-e');
         elem.setAttribute('aria-label', msg);
         setTimeout(function(){
-            $(elem).removeClass('tooltipped tooltipped-s');
+            $(elem).removeClass('tooltipped tooltipped-e');
         }, 1000);
     }
 
