@@ -1,0 +1,952 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>JOB ANALYSIS - BAR CALCULATOR</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+       <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+       <link rel="stylesheet" type="text/css" href="assets/css/nouislider.min.css">
+       <link rel="stylesheet" type="text/css" href="assets/css/range-slider.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 brown header_triangle height120">
+                    <div class="row p30">
+                        <div class="col-xs-12">
+                            <img class="img-responsive inline pR10" src="assets/img/sq.png" alt="SW">
+
+                            <img class="img-responsive inline pR10" src="assets/img/wpp.png" alt="SW">
+
+                            <img class="img-responsive inline pR10" src="assets/img/wva.png" alt="SW">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 grey height120 pT25">
+                    <h1>JOB ANALYSIS - BAR CALCULATOR</h1>
+                </div>
+            </div><!-- ./row -->
+        </div><!-- container -->
+
+        <div class="container">
+            <div class="row mT50 row_valign">
+                <div class="col-md-9 div_valign">
+
+                    <div class="col-xs-12 col-sm-12">
+                        <p class="heading">Benchmarks Defined</p>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12">
+                        <ul class="benchmark">
+                            <li>The benchmarks below represent the preferred score ranges for people working in this particular job.</li>
+                            <li>The benchmarks are calculated from the Job Analysis Questionnaire's task importance and frequency ratings</li>
+                            <li>Use the benchmarks as guidelines for evaluating a person's fit to the requirements of the job</li>
+                        </ul>
+                    </div>
+
+                </div> <!-- ./sm-9 -->
+
+                <div class="col-md-3 div_valign">
+
+                    <div class="col-xs-12 job_title grey p10 text-center">Enter job title below:</div>
+                    <div class="col-xs-12 p10 grey text-center"><input class="form-control" type="text" name="job_title" placeholder="Job Title"></div>
+                </div> <!-- ./sm-3 -->
+
+            </div><!-- ./row -->
+        </div><!-- ./container -->
+
+
+
+        <div class="container">
+            <div class="row mT50">
+                <a href="#" id="sq_wrapper_btn">
+                <div class="col-xs-12 greenBg">
+                    <p class="benchmark_label "><span class="glyphicon glyphicon-chevron-right"></span> SQ BENCHMARK <span class="glyphicon glyphicon-option-vertical pull-right"></span></p>
+                </div>
+                </a>
+            </div><!-- ./row -->
+        </div><!-- ./container -->
+
+         <!-- //// SQ sliders //// -->
+        <div id="sq_wrapper">
+        <div class="container">
+            <div class="row mT20">
+                <div class="col-xs-4 col-xs-offset-8 col-sm-4 col-sm-offset-8 hidden-md hidden-lg text-right mB20"><p class="bg-primary text-center">Benchmark - Preferred Score Range for the job <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></p>
+                </div>
+
+                <div class="col-md-3 col-md-offset-6 hidden-xs hidden-sm"><p class="bg-primary text-center">Benchmark - Preferred Score Range for the job <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></p>
+                </div>
+                <div class="col-md-3 hidden-xs hidden-sm"></div>
+            </div>
+
+            <!-- /// 1. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Resistant</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Accommodating</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+                    <div class="row text-center hidden-sm hidden-xs">
+                        <div class="col-xs-12">
+                           Range
+                        </div>
+                        <div class="col-md-6">Bottom</div>
+                        <div class="col-md-6">Top</div>
+                    </div><!-- ./row -->
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="sq_1" class="pmd-range-slider pmd-range-tooltip"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_1_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_1_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+
+            <!-- /// 2. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Anxious</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Calm</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="sq_2"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_2_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_2_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+            <!-- /// 3. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Impatient</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Patient</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="sq_3"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_3_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_3_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+            <!-- /// 4. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Distractible</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Focused</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="sq_4"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_4_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_4_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+            <!-- /// 5. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Impulsive</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Cautious</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="sq_5"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_5_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_5_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+
+            <!-- /// 6. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Thrill Seeking</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Apprehensive</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="sq_6"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_6_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="sq_6_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+        </div><!-- ./container -->
+        </div><!-- ./sq_wrapper -->
+
+         <!-- //// WPP sliders //// -->
+
+         <div class="container">
+             <div class="row mT50">
+                <a href="#" id="wpp_wrapper_btn">
+                 <div class="col-xs-12 blueBg">
+                     <p class="benchmark_label "><span class="glyphicon glyphicon-chevron-right"></span> WPP BENCHMARK <span class="glyphicon glyphicon-option-vertical pull-right"></span></p>
+                 </div>
+                 </a>
+             </div><!-- ./row -->
+         </div><!-- ./container -->
+
+        <div id="wpp_wrapper">
+        <div class="container">
+            <div class="row mT20">
+                <div class="col-xs-4 col-xs-offset-8 col-sm-4 col-sm-offset-8 hidden-md hidden-lg text-right mB20"><p class="bg-primary text-center">Benchmark - Preferred Score Range for the job <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></p>
+                </div>
+
+                <div class="col-md-3 col-md-offset-6 hidden-xs hidden-sm"><p class="bg-primary text-center">Benchmark - Preferred Score Range for the job <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></p>
+                </div>
+                <div class="col-md-3 hidden-xs hidden-sm"></div>
+            </div>
+
+            <!-- /// 1. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Non-Dominant</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Dominant</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+                    <div class="row text-center hidden-sm hidden-xs">
+                        <div class="col-xs-12">
+                           Range
+                        </div>
+                        <div class="col-md-6">Bottom</div>
+                        <div class="col-md-6">Top</div>
+                    </div><!-- ./row -->
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wpp_1"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <!-- <label for="wpp_1_0">Bottom</label> -->
+                        <input readonly type="text" class="form-control" id="wpp_1_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <!-- <label for="wpp_1_1">Top</label> -->
+                        <input readonly type="text" class="form-control" id="wpp_1_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+
+            <!-- /// 2. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Contented</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25">
+
+                            <span class="label label-success">Achievement-Focused</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wpp_2"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_2_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_2_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+            <!-- /// 3. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Reactive</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Calm</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wpp_3"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_3_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_3_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+            <!-- /// 4. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Reserved</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Outgoing</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wpp_4"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_4_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_4_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+            <!-- /// 5. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Direct</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Empathetic</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wpp_5"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_5_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_5_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+
+            <!-- /// 6. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Spontaneous</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Regimented</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wpp_6"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_6_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_6_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+
+            <!-- /// 7. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Conventional</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">Open-minded</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wpp_7"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_7_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wpp_7_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+        </div><!-- ./container -->
+        </div><!-- ./wpp_wrapper -->
+
+
+         <!-- //// WVA sliders //// -->
+
+        <div class="container">
+            <div class="row mT50">
+                <a href="#" id="wva_wrapper_btn">
+                <div class="col-xs-12 orangeBg">
+                    <p class="benchmark_label "><span class="glyphicon glyphicon-chevron-right"></span> WVA BENCHMARK <span class="glyphicon glyphicon-option-vertical pull-right"></span></p>
+                </div>
+                </a>
+            </div><!-- ./row -->
+        </div><!-- ./container -->
+
+        <div id="wva_wrapper">
+        <div class="container">
+            <div class="row mT20">
+                <div class="col-xs-4 col-xs-offset-8 col-sm-4 col-sm-offset-8 hidden-md hidden-lg text-right mB20"><p class="bg-primary text-center">Benchmark - Preferred Score Range for the job <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></p>
+                </div>
+
+                <div class="col-md-3 col-md-offset-6 hidden-xs hidden-sm"><p class="bg-primary text-center">Benchmark - Preferred Score Range for the job <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></p>
+                </div>
+                <div class="col-md-3 hidden-xs hidden-sm"></div>
+            </div>
+
+            <!-- /// 1. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Low Integrity</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">High Integrity</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+                    <div class="row text-center hidden-sm hidden-xs">
+                        <div class="col-xs-12">
+                           Range
+                        </div>
+                        <div class="col-md-6">Bottom</div>
+                        <div class="col-md-6">Top</div>
+                    </div><!-- ./row -->
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wva_1"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_1_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_1_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+
+            <!-- /// 2. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Low Responsibility</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">High Responsibility</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wva_2"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_2_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_2_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+            <!-- /// 3. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Low Coachability</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">High Coachability</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wva_3"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_3_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_3_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+            <!-- /// 4. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Low Positivity</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">High Positive Attitude</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wva_4"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_4_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_4_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+            <!-- /// 5. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Low Aggression Control</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">High Aggression Control</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wva_5"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_5_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_5_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+
+            <!-- /// 6. /// -->
+            <div class="slider_wrapper">
+            <div class="row">
+                <div class="col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 mB25">
+                            <span class="label label-danger">Low Communication</span>
+                        </div>
+
+                        <div class="col-xs-6 text-right mB25" >
+
+                            <span class="label label-success">High Open Communication</span>
+                        </div>
+                    </div><!-- ./row -->
+                </div>
+
+                <div class="col-md-3">
+
+                </div>
+            </div><!-- ./row -->
+
+            <div class="row">
+                <div class="col-sm-9 col-xs-12 mTMob25 text-center">
+                    <div id="wva_6"></div>
+                </div>
+
+                <div class="col-sm-3 col-xs-12 mTMob50">
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_6_0" placeholder="Bottom">
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input readonly type="text" class="form-control" id="wva_6_1" placeholder="Top">
+                    </div>
+                </div>
+            </div><!-- ./row -->
+            </div><!-- ./slider_wrapper -->
+
+        </div><!-- ./container -->
+        </div><!-- ./wva_wrapper -->
+
+
+
+        <!-- Sequences -->
+        <footer class="footer" id="collapse_footer">
+        <div class="container">
+            <div class="toggle_footer">
+                <a href="#" id="footer_btn"><span id="footer_btn_icon" class="glyphicon glyphicon-chevron-down"></span></a>
+            </div>
+            <div class="row fixed_seq">
+                <div class="col-sm-4 text-center mB20">
+                    <p class="sq_seq_txt">SQ Sequence:</p>
+                    <p class="sq_sequences">
+                        <span>S</span><span id="sq_1_0_0"></span><span id="sq_1_1_1"></span><span id="sq_2_0_0"></span><span id="sq_2_1_1"></span><span id="sq_3_0_0"></span><span id="sq_3_1_1"></span><span id="sq_4_0_0"></span><span id="sq_4_1_1"></span><span id="sq_5_0_0"></span><span id="sq_5_1_1"></span><span id="sq_6_0_0"></span><span id="sq_6_1_1"></span>
+                    </p>
+                    <button id="btn_sq" class="btn btn-success btn-sm clip"  data-clipboard-action="copy" data-clipboard-target="#sq_hidden">
+                        <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copy SQ Sequence
+                    </button>
+                    <input type="text" id="sq_hidden">
+                </div>
+
+                <div class="col-sm-4 text-center mB20">
+                    <p class="sq_wpp_txt">WPP Sequence:</p>
+                    <p class="wpp_sequences">
+                        <span>W</span><span id="wpp_1_0_0"></span><span id="wpp_1_1_1"></span><span id="wpp_2_0_0"></span><span id="wpp_2_1_1"></span><span id="wpp_3_0_0"></span><span id="wpp_3_1_1"></span><span id="wpp_4_0_0"></span><span id="wpp_4_1_1"></span><span id="wpp_5_0_0"></span><span id="wpp_5_1_1"></span><span id="wpp_6_0_0"></span><span id="wpp_6_1_1"></span><span id="wpp_7_0_0"></span><span id="wpp_7_1_1"></span>
+                    </p>
+                    <button id="btn_wpp" class="btn btn-primary btn-sm clip"  data-clipboard-action="copy" data-clipboard-target="#wpp_hidden">
+                        <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copy WPP Sequence
+                    </button>
+                    <input type="text" id="wpp_hidden">
+                </div>
+
+                <div class="col-sm-4 text-center mB20">
+                    <p class="sq_wva_txt">WVA Sequence:</p>
+                    <p class="wva_sequences">
+                        <span>V</span><span id="wva_1_0_0"></span><span id="wva_1_1_1"></span><span id="wva_2_0_0"></span><span id="wva_2_1_1"></span><span id="wva_3_0_0"></span><span id="wva_3_1_1"></span><span id="wva_4_0_0"></span><span id="wva_4_1_1"></span><span id="wva_5_0_0"></span><span id="wva_5_1_1"></span><span id="wva_6_0_0"></span><span id="wva_6_1_1"></span>
+                    </p>
+                    <button id="btn_wva" class="btn btn-warning btn-sm clip"  data-clipboard-action="copy" data-clipboard-target="#wva_hidden">
+                        <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copy WVA Sequence
+                    </button>
+                    <input type="hidden" id="wva_hidden">
+                </div>
+
+            </div>
+        </div><!-- ./ container -->
+        </footer>
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')</script>
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/js/nouislider.min.js"></script>
+        <script type="text/javascript" src="assets/js/wNumb.js"></script>
+        <script src="assets/js/clipboard.min.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
