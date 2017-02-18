@@ -10,7 +10,12 @@ body {
   bottom: 0;
   width: 100%;
   height: 110px;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
+  background: rgb(219,219,219);
+  background: -moz-linear-gradient(top, rgba(219,219,219,1) 0%, rgba(255,255,255,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(219,219,219,1) 0%,rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(219,219,219,1) 0%,rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#ffffff',GradientType=0 );
   border-top: 1px solid #ccc;
   padding-top: 5px;
   z-index: 10000;
@@ -132,6 +137,7 @@ h1{
     font-size: 26px;
     font-weight: bold;
     text-align: center;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), -1px -1px 1px rgba(0, 0, 0, 0.7);
 }
 .header_triangle{
     position: relative;
@@ -159,6 +165,7 @@ ul.benchmark{
     color: #fff;
     font-size: 16px;
     font-weight: bold;
+    text-shadow: 1px 1px rgba(0,0,0,0.6);
 }
 .benchmark_label{
     font-size: 18px;
@@ -167,6 +174,9 @@ ul.benchmark{
     color: #fff;
     padding: 5px;
     margin-top: 10px;
+}
+#sq_wrapper, #wpp_wrapper, #wva_wrapper{
+    display: none;
 }
 #sq_wrapper_btn .greenBg:hover{
     background: rgba(6,126,85,0.9);
@@ -200,8 +210,7 @@ p.squences span{
 }
 .sq_sequences, .wpp_sequences, .wva_sequences{
     font-weight: bold;
-    background: #ccc;
-    border: 1px solid transparent;
+    background: #ccc
 }
 
 
@@ -247,9 +256,6 @@ input#wpp_hidden, input#sq_hidden, input#wva_hidden{
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(62,57,152,.6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(62,57,152,.6);
 }
-.redBorder{
-    border: 1px solid #ff0000;
-}
 #sq_1 .noUi-connect, #sq_2 .noUi-connect, #sq_3 .noUi-connect, #sq_4 .noUi-connect, #sq_5 .noUi-connect, #sq_6 .noUi-connect{
     background: #067e55;
 }
@@ -286,13 +292,16 @@ input#wpp_hidden, input#sq_hidden, input#wva_hidden{
         top: -30px;
         right: 20px;
         z-index: 111000;
-        background-color: #f5f5f5;
+        background-color: #dbdbdb;
         border: 1px solid #ccc;
         border-bottom-color: transparent;
         border-radius: 4px;
     }
 }
 @media screen and (max-width: 767px){
+    body {
+      margin-bottom: 10px;
+    }
     .header_triangle:after{
         display: none;
     }
