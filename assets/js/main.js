@@ -465,12 +465,15 @@
             }
         });
         var target = $(this);
-        if( target.length ) {
+         setTimeout(function(){
 
-            $('html, body').stop().animate({
-                scrollTop: target.offset().top
-            }, 1000);
-        }
+           if( target.length ) {
+
+               $('html, body').animate({
+                   scrollTop: target.offset().top
+               }, 1000);
+           }
+       }, 500);
 
     });
     $('#wpp_wrapper_btn').on('click', function(e){
@@ -483,12 +486,15 @@
            }
        });
        var target = $(this);
-       if( target.length ) {
+       setTimeout(function(){
 
-           $('html, body').stop().animate({
-               scrollTop: target.offset().top
-           }, 1000);
-       }
+           if( target.length ) {
+
+               $('html, body').animate({
+                   scrollTop: target.offset().top
+               }, 1000);
+           }
+       }, 500);
     });
     $('#wva_wrapper_btn').on('click', function(e){
         e.preventDefault();
@@ -500,11 +506,23 @@
            }
        });
        var target = $(this);
-       if( target.length ) {
+        setTimeout(function(){
 
-           $('html, body').stop().animate({
-               scrollTop: target.offset().top
-           }, 1000);
-       }
+           if( target.length ) {
+
+               $('html, body').animate({
+                   scrollTop: target.offset().top
+               }, 1000);
+           }
+       }, 500);
     });
+
+    // S regex: ^[S][0-9]{24}$
+    // W regex: ^[W][0-9]{28}$
+    // V regex: ^[S][0-9]{24}$
+
+    // modal
+    $(window).load(function(){
+        $('#seq_modal').modal('show');
+    }
 })();
