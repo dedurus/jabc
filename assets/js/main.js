@@ -1,7 +1,100 @@
 (function() {
 
     'use strict';
-    // settings
+
+    // modal
+    $(window).on('load', function(){
+        setTimeout(function(){
+            $('#seq_modal').modal();
+        }, 500);
+    });
+
+    $('#seq_modal').on('hidden.bs.modal', function () {
+        $('#main, .footer').addClass('not_blurred').removeClass('blurred');
+        setTimeout(function(){
+            $('.footer').removeClass('not_blurred');
+        }, 500);
+    });
+
+    $('#second_step').on('click', function(e){
+        $('.first').slideUp();
+        $('.second').slideDown().addClass('active').addClass('in');
+    });
+
+    function check_seqeunce(seq){
+        var sub = seq.substring(1),
+            group_1 = [],
+            group_2 = [],
+            i = 1,
+            error_list,
+            error_seq = '',
+            errors = {};
+
+            if(isNaN(sub)){
+
+                errors = {
+                    seq: '',
+                    msg: 'Invalid input for the sequence'
+                }
+
+                 $('.help-block-sq').html(errors.msg + errors.seq);
+                return;
+            }
+
+            group_1 = sub.match(/.{1,4}/g);
+
+            group_1.forEach(function(el){
+                var el_2 = el.match(/.{1,2}/g);
+                if(el_2[0] > el_2[1]){
+                    error_list = true;
+
+
+
+                    error_seq += '<span class="error_span">' + el_2[0] + el_2[1] + '</span>';
+                }else{
+                    error_seq += el_2[0] + el_2[1];
+                }
+                i++;
+            });
+            if(error_list){
+                console.info('ERROR!');
+                 errors = {
+                    msg: 'There are problems with the code marked as red',
+                    seq: error_seq
+                }
+
+                $('.help-block-sq').html(errors_reporting_2(errors));
+            }
+    }
+
+    function isNumeric(num){
+        return !isNaN(num)
+    }
+
+   /* function errors_reporting(sequence_index, sequence_elem){
+        var seq_suffix = '';
+        if(sequence_index == 1){
+            seq_suffix = 'st';
+        }else if(sequence_index == 2){
+            seq_suffix = 'nd';
+        }else if(sequence_index == 3){
+            seq_suffix = 'rd';
+        }else{
+            seq_suffix = 'th';
+        }
+        return '<div>' + sequence_index + seq_suffix + ' sequence. The first sequence value (' + sequence_elem[0] + ') cannot be greater than the second (' + sequence_elem[1] + ')</div>';
+    }*/
+
+    function errors_reporting_2(errors){
+
+        return '<p>' + errors.msg + '</p>' + '<p>' + errors.seq + '</p>';
+    }
+
+    // ./modal
+
+
+
+    // sliders settings
     var sq_sliders = {
         'min': [1],
         '25': [25],
@@ -347,8 +440,8 @@
             $('#' + slider_id + '_' + handle).addClass('form-control_focused_' + handle);
             $('#' + slider_id + '_' + handle + '_' + handle).addClass('redCo');
             $('.' + seq_view + '_sequences').addClass('redBorder');
-            console.log(slider_id);
-            console.log($('.' + slider_id + '_sequences'));
+
+
         });
 
         // prepare sequence for copying
@@ -457,14 +550,14 @@
     $('#sq_wrapper_btn').on('click', function(e){
         e.preventDefault();
 
-        $('#sq_wrapper').slideToggle().promise().done(function() {
+        $('#sq_wrapper').slideToggle('1200').promise().done(function() {
             if( $('#sq_title_toggle').hasClass('glyphicon-chevron-right') ) {
                 $('#sq_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
             }else{
                 $('#sq_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
             }
         });
-        var target = $(this);
+        /*var target = $(this);
          setTimeout(function(){
 
            if( target.length ) {
@@ -473,31 +566,24 @@
                    scrollTop: target.offset().top
                }, 1000);
            }
-       }, 500);
+       }, 500);*/
 
     });
     $('#wpp_wrapper_btn').on('click', function(e){
         e.preventDefault();
-        $('#wpp_wrapper').slideToggle().promise().done(function() {
+
+        $('#wpp_wrapper').slideToggle('slow').promise().done(function() {
            if( $('#wpp_title_toggle').hasClass('glyphicon-chevron-right') ) {
                $('#wpp_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
            }else{
                $('#wpp_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
            }
        });
-       var target = $(this);
-       setTimeout(function(){
 
-           if( target.length ) {
-
-               $('html, body').animate({
-                   scrollTop: target.offset().top
-               }, 1000);
-           }
-       }, 500);
     });
     $('#wva_wrapper_btn').on('click', function(e){
         e.preventDefault();
+
         $('#wva_wrapper').slideToggle().promise().done(function() {
            if( $('#wva_title_toggle').hasClass('glyphicon-chevron-right') ) {
                $('#wva_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
@@ -505,24 +591,75 @@
                $('#wva_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
            }
        });
-       var target = $(this);
-        setTimeout(function(){
 
-           if( target.length ) {
-
-               $('html, body').animate({
-                   scrollTop: target.offset().top
-               }, 1000);
-           }
-       }, 500);
     });
 
     // S regex: ^[S][0-9]{24}$
     // W regex: ^[W][0-9]{28}$
     // V regex: ^[S][0-9]{24}$
+    // $.validator.methods.pattern("AR1004",element,/^AR\d{4}$/)
 
-    // modal
-    $(window).load(function(){
-        $('#seq_modal').modal('show');
-    }
+
+    /*$.validator.addMethod( "pattern_s", function( value, element ) {
+        return this.optional( element ) || /^[S][0-9]{24}$/.test( value );
+    }, "The specified US ZIP Code is invalid" );
+
+    $.validator.addMethod( "pattern_w", function( value, element ) {
+        return this.optional( element ) || /^[W][0-9]{28}$/.test( value );
+    }, "The specified US ZIP Code is invalid" );
+
+    $.validator.addMethod( "pattern_v", function( value, element ) {
+        return this.optional( element ) || /^[W][0-9]{24}$/.test( value );
+    }, "The specified US ZIP Code is invalid" );*/
+
+    /*var form_validation = $('#seq_form').validate({
+      rules: {
+        sq_seq_insert: {
+            min: 24,
+            pattern_s: true
+        },
+        wpp_seq_insert: {
+            pattern_w: true
+        },
+        wva_seq_insert: {
+            pattern_v: true
+        }
+      },
+      messages: {
+        sq_seq_insert: 'Invalid format',
+        wpp_seq_insert: 'Invalid format',
+        wva_seq_insert: 'Invalid format'
+      },
+      submitHandler: function(form) {
+
+
+      }
+    });*/
+
+    $('#seq_form').validator().on('submit', function (e) {
+        e.preventDefault();
+        var sq_val = $('#sq_seq_insert').val().trim(),
+            wpp_val = $('#wpp_seq_insert').val().trim(),
+            wva_val = $('#wva_seq_insert').val().trim();
+      if (e.isDefaultPrevented()) {
+        // all values are empty
+        if((sq_val.length == 0) && (wpp_val.length == 0) && (wva_val.length == 0)){
+
+            $('.error_container').html('<div class="alert alert-warning empty_warning">Pleae enter at least one sequence. If you want to start with default values, click on the <strong>Continue with default codes</strong> button.</div>');
+            setTimeout(function(){
+                $('.empty_warning').slideUp();
+            },5000)
+        }
+        else if(sq_val.length != 0){        // sequence check
+            check_seqeunce(sq_val);
+        }
+
+
+      } else {
+        // everything looks good!
+      }
+
+    })
+
 })();
+
