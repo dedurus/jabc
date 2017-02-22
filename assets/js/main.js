@@ -2,101 +2,7 @@
 
     'use strict';
 
-    // modal
-    $(window).on('load', function(){
-        setTimeout(function(){
-            $('#seq_modal').modal();
-        }, 500);
-    });
 
-    $('#seq_modal').on('hidden.bs.modal', function () {
-        $('#main, .footer').addClass('not_blurred').removeClass('blurred');
-        setTimeout(function(){
-            $('.footer').removeClass('not_blurred');
-        }, 500);
-    });
-
-    $('#second_step').on('click', function(e){
-        $('.first').slideUp();
-        $('.second').slideDown().addClass('active').addClass('in');
-    });
-
-    function check_seqeunce(seq){
-        var seq_letter = seq.charAt(0),
-            sub = seq.substring(1),
-            group_1 = [],
-            group_2 = [],
-            i = 1,
-            error_list,
-            error_seq = '',
-            errors = {};
-
-            if(isNaN(sub)){
-                errors = {
-                    seq: '',
-                    msg: 'Invalid input for the sequence'
-                }
-
-                 $('.help-block-sq').html(errors.msg + errors.seq);
-                return;
-            }
-
-            group_1 = sub.match(/.{1,4}/g);
-
-            group_1.forEach(function(el){
-                var el_2 = el.match(/.{1,2}/g);
-                if(el_2[0] > el_2[1]){
-                    error_list = true;
-                    error_seq += '<span class="error_span">' + el_2[0] + el_2[1] + '</span>';
-                console.info('ERROR!');
-                }else{
-                    error_seq += el_2[0] + el_2[1];
-                }
-                i++;
-            });
-            if(error_list){
-                 errors = {
-                    msg: 'There are problems with the code marked as red',
-                    seq: error_seq
-                }
-
-                $('.help-block-sq').html(errors_reporting_2(errors));
-                return;
-            }
-
-            $('.help-block-sq').html('');
-            var seq_return = {
-                letter: seq_letter,
-                seq: error_seq
-            }
-
-            return seq_return;
-    }
-
-    function isNumeric(num){
-        return !isNaN(num)
-    }
-
-   /* function errors_reporting(sequence_index, sequence_elem){
-        var seq_suffix = '';
-        if(sequence_index == 1){
-            seq_suffix = 'st';
-        }else if(sequence_index == 2){
-            seq_suffix = 'nd';
-        }else if(sequence_index == 3){
-            seq_suffix = 'rd';
-        }else{
-            seq_suffix = 'th';
-        }
-        return '<div>' + sequence_index + seq_suffix + ' sequence. The first sequence value (' + sequence_elem[0] + ') cannot be greater than the second (' + sequence_elem[1] + ')</div>';
-    }*/
-
-    function errors_reporting_2(errors){
-
-        return '<p>' + errors.msg + '</p>' + '<p>' + errors.seq + '</p>';
-    }
-
-    // ./modal
 
 
 
@@ -600,16 +506,115 @@
 
     });
 
+
+     // modal
+     $(window).on('load', function(){
+         setTimeout(function(){
+             $('#seq_modal').modal();
+         }, 500);
+     });
+
+     $('#seq_modal').on('hidden.bs.modal', function () {
+         $('#main, .footer').addClass('not_blurred').removeClass('blurred');
+         setTimeout(function(){
+             $('.footer').removeClass('not_blurred');
+         }, 500);
+     });
+
+     $('#second_step').on('click', function(e){
+         $('.first').slideUp();
+         $('.second').slideDown().addClass('active').addClass('in');
+     });
+
+     function check_seqeunce(seq){
+         var seq_letter = seq.charAt(0),
+             sub = seq.substring(1),
+             group_1 = [],
+             group_2 = [],
+             i = 1,
+             error_list,
+             error_seq = '',
+             errors = {};
+
+             if(isNaN(sub)){
+                 errors = {
+                     seq: '',
+                     msg: 'Invalid input for the sequence'
+                 }
+
+                  $('.help-block-sq').html(errors.msg + errors.seq);
+                 return;
+             }
+
+             group_1 = sub.match(/.{1,4}/g);
+
+             group_1.forEach(function(el){
+                 var el_2 = el.match(/.{1,2}/g);
+                 if(el_2[0] > el_2[1]){
+                     error_list = true;
+                     error_seq += '<span class="error_span">' + el_2[0] + el_2[1] + '</span>';
+                 console.info('ERROR!');
+                 }else{
+                     error_seq += el_2[0] + el_2[1];
+                 }
+                 i++;
+             });
+             if(error_list){
+                  errors = {
+                     msg: 'The sequence structure is valid but pairs in with red color aren\'t. Please fix those pairs, and press "Generate" button again',
+                     seq: error_seq,
+                     error_flag: 1
+                 }
+
+                 $('.help-block-sq').html(errors_reporting_2(errors));
+                 return;
+             }
+
+             $('.help-block-sq').html('');
+             var seq_return = {
+                 letter: seq_letter,
+                 seq: error_seq,
+                 error_flag: 0
+             }
+
+             return seq_return;
+     }
+
+     function isNumeric(num){
+         return !isNaN(num)
+     }
+
+    /* function errors_reporting(sequence_index, sequence_elem){
+         var seq_suffix = '';
+         if(sequence_index == 1){
+             seq_suffix = 'st';
+         }else if(sequence_index == 2){
+             seq_suffix = 'nd';
+         }else if(sequence_index == 3){
+             seq_suffix = 'rd';
+         }else{
+             seq_suffix = 'th';
+         }
+         return '<div>' + sequence_index + seq_suffix + ' sequence. The first sequence value (' + sequence_elem[0] + ') cannot be greater than the second (' + sequence_elem[1] + ')</div>';
+     }*/
+
+     function errors_reporting_2(errors){
+
+         return '<p>' + errors.msg + '</p>' + '<p>' + errors.seq + '</p>';
+     }
+
+
     // S regex: ^[S][0-9]{24}$
     // W regex: ^[W][0-9]{28}$
     // V regex: ^[S][0-9]{24}$
     // $.validator.methods.pattern("AR1004",element,/^AR\d{4}$/)
 
     function set_slider(slider, sequence){
-        slider.noUiSlider.set[sequence];
+        slider.noUiSlider.set(sequence);
     }
 
     function convert_sequence(seq){
+
         var sub = seq.seq,
             group_1 = sub.match(/.{1,4}/g),
             seq_array = []
@@ -628,7 +633,9 @@
         return seq_array;
     }
 
-    $('#seq_form').validator().on('submit', function (e) {
+    $('#seq_form').validator({
+        //feedback: { success: 'glyphicon-ok', error: 'glyphicon-remove' }
+    }).on('submit', function (e) {
         e.preventDefault();
         var sq_val = $('#sq_seq_insert').val().trim(),
             wpp_val = $('#wpp_seq_insert').val().trim(),
@@ -640,13 +647,26 @@
             $('.error_container').html('<div class="alert alert-warning empty_warning">Pleae enter at least one sequence. If you want to start with default values, click on the <strong>Continue with default codes</strong> button.</div>');
             setTimeout(function(){
                 $('.empty_warning').slideUp();
-            },5000);
+                return;
+            },8000);
         }
+
+        // ??? (sq_val.length != 25) ????
         else if(sq_val.length != 0){        // sequence check
             var sq_seq_insert = check_seqeunce(sq_val),
                 sq_array = [],
                 i = 1;
-                sq_array = convert_sequence(sq_seq_insert);
+
+            if(typeof sq_seq_insert == 'undefined'){
+                console.log('late return');
+                return;
+            }
+
+
+            sq_array = convert_sequence(sq_seq_insert);
+
+
+
             console.log(sq_val);
             console.log(sq_seq_insert);
             console.log(sq_array);
@@ -654,11 +674,14 @@
                 var slider = 'slider_' + i;
             }*/
             $.each(sq_array, function(index, val){
-                var slider = 'slider_' + i;
-                set_slider(slider, val);
+                var current_slider = document.getElementById('sq_' + i);
+                console.log(current_slider);
+                console.log(index);
+                console.log(val);
+                console.log(typeof current_slider);
+                current_slider.noUiSlider.set(val);
                 i++;
-                /*console.log(index);
-                console.log(val);*/
+
             });
 
         }

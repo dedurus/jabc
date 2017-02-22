@@ -1007,23 +1007,28 @@
                       <div class="second">
                         <h4 class="modal-title" data-step="1">Enter your benchmark code and click <span class="text-info">GENERATE</span></h4>
                         <form id="seq_form" method="post" action="#" data-toggle="validator"  role="form" novalidate>
-                            <div class="form-group col-sm-12 col-md-4">
+                            <div class="form-group has-feedback col-sm-12 col-md-4">
                               <label class="sq_seq_label" for="sq_seq_insert">SQ Sequence Code</label>
-                              <input pattern="^[S][0-9]{24}$" name="sq_seq_insert" type="text" class="form-control" id="sq_seq_insert" placeholder="SQ Sequence Code">
-                              <span  class="help-block help-block-sq"></span>
+                              <input pattern="^[S][0-9]{24}$" name="sq_seq_insert" type="text" class="form-control" id="sq_seq_insert" placeholder="SQ Sequence Code" data-validate="true" data-pattern-error="The sequence is not valid">
+                              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                              <span  class="help-block help-block-sq with-errors"></span>
                             </div>
 
                             <div class="form-group col-sm-12 col-md-4">
                               <label class="wpp_seq_label" for="wpp_seq_insert">WPP Sequence Code</label>
                               <input pattern="^[W][0-9]{28}$" name="wpp_seq_insert" type="text" class="form-control" id="wpp_seq_insert" placeholder="WPP Sequence Code">
+                              <span  class="help-block help-block-sq with-errors"></span>
                             </div>
 
                             <div class="form-group col-sm-12 col-md-4">
                               <label class="wva_seq_label" for="wva_seq_insert">WVA Sequence Code</label>
                               <input pattern="^[V][0-9]{24}$" name="wva_seq_insert" type="text" class="form-control" id="wva_seq_insert" placeholder="WVA Sequence Code">
+                              <span  class="help-block help-block-sq with-errors"></span>
                             </div>
 
-
+                            <div class="col-xs-12">
+<div class="error_container"></div>
+</div>
                             <div class="form-group col-xs-12 mT50">
                               <button class="btn btn-primary btn-lg">GENERATE</button>
                             </div>
