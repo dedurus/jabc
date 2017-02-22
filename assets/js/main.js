@@ -22,7 +22,8 @@
     });
 
     function check_seqeunce(seq){
-        var sub = seq.substring(1),
+        var seq_letter = seq.charAt(0),
+            sub = seq.substring(1),
             group_1 = [],
             group_2 = [],
             i = 1,
@@ -31,7 +32,6 @@
             errors = {};
 
             if(isNaN(sub)){
-
                 errors = {
                     seq: '',
                     msg: 'Invalid input for the sequence'
@@ -47,24 +47,30 @@
                 var el_2 = el.match(/.{1,2}/g);
                 if(el_2[0] > el_2[1]){
                     error_list = true;
-
-
-
                     error_seq += '<span class="error_span">' + el_2[0] + el_2[1] + '</span>';
+                console.info('ERROR!');
                 }else{
                     error_seq += el_2[0] + el_2[1];
                 }
                 i++;
             });
             if(error_list){
-                console.info('ERROR!');
                  errors = {
                     msg: 'There are problems with the code marked as red',
                     seq: error_seq
                 }
 
                 $('.help-block-sq').html(errors_reporting_2(errors));
+                return;
             }
+
+            $('.help-block-sq').html('');
+            var seq_return = {
+                letter: seq_letter,
+                seq: error_seq
+            }
+
+            return seq_return;
     }
 
     function isNumeric(num){
@@ -599,42 +605,28 @@
     // V regex: ^[S][0-9]{24}$
     // $.validator.methods.pattern("AR1004",element,/^AR\d{4}$/)
 
+    function set_slider(slider, sequence){
+        slider.noUiSlider.set[sequence];
+    }
 
-    /*$.validator.addMethod( "pattern_s", function( value, element ) {
-        return this.optional( element ) || /^[S][0-9]{24}$/.test( value );
-    }, "The specified US ZIP Code is invalid" );
+    function convert_sequence(seq){
+        var sub = seq.seq,
+            group_1 = sub.match(/.{1,4}/g),
+            seq_array = []
+            ;
+            console.log(sub);
 
-    $.validator.addMethod( "pattern_w", function( value, element ) {
-        return this.optional( element ) || /^[W][0-9]{28}$/.test( value );
-    }, "The specified US ZIP Code is invalid" );
+        group_1.forEach(function(el){
+            var el_2 = el.match(/.{1,2}/g);
+            if(el_2[0] > el_2[1]){
+                console.log('Sranje');
+            }else{
+                seq_array.push([el_2[0], el_2[1]]);
+            }
+        });
 
-    $.validator.addMethod( "pattern_v", function( value, element ) {
-        return this.optional( element ) || /^[W][0-9]{24}$/.test( value );
-    }, "The specified US ZIP Code is invalid" );*/
-
-    /*var form_validation = $('#seq_form').validate({
-      rules: {
-        sq_seq_insert: {
-            min: 24,
-            pattern_s: true
-        },
-        wpp_seq_insert: {
-            pattern_w: true
-        },
-        wva_seq_insert: {
-            pattern_v: true
-        }
-      },
-      messages: {
-        sq_seq_insert: 'Invalid format',
-        wpp_seq_insert: 'Invalid format',
-        wva_seq_insert: 'Invalid format'
-      },
-      submitHandler: function(form) {
-
-
-      }
-    });*/
+        return seq_array;
+    }
 
     $('#seq_form').validator().on('submit', function (e) {
         e.preventDefault();
@@ -648,10 +640,27 @@
             $('.error_container').html('<div class="alert alert-warning empty_warning">Pleae enter at least one sequence. If you want to start with default values, click on the <strong>Continue with default codes</strong> button.</div>');
             setTimeout(function(){
                 $('.empty_warning').slideUp();
-            },5000)
+            },5000);
         }
         else if(sq_val.length != 0){        // sequence check
-            check_seqeunce(sq_val);
+            var sq_seq_insert = check_seqeunce(sq_val),
+                sq_array = [],
+                i = 1;
+                sq_array = convert_sequence(sq_seq_insert);
+            console.log(sq_val);
+            console.log(sq_seq_insert);
+            console.log(sq_array);
+            /*for(var i = 1; i <= 6; i++){
+                var slider = 'slider_' + i;
+            }*/
+            $.each(sq_array, function(index, val){
+                var slider = 'slider_' + i;
+                set_slider(slider, val);
+                i++;
+                /*console.log(index);
+                console.log(val);*/
+            });
+
         }
 
 
