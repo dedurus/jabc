@@ -2,10 +2,6 @@
 
     'use strict';
 
-
-
-
-
     // sliders settings
     var sq_sliders = {
         'min': [1],
@@ -469,16 +465,16 @@
                 $('#sq_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
             }
         });
-        /*var target = $(this);
+        var target = $(this);
          setTimeout(function(){
 
            if( target.length ) {
 
-               $('html, body').animate({
+               $('html, body').stop().animate({
                    scrollTop: target.offset().top
                }, 1000);
            }
-       }, 500);*/
+       }, 500);
 
     });
     $('#wpp_wrapper_btn').on('click', function(e){
@@ -491,6 +487,16 @@
                $('#wpp_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
            }
        });
+         var target = $(this);
+          setTimeout(function(){
+
+            if( target.length ) {
+
+                $('html, body').stop().animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+            }
+        }, 500);
 
     });
     $('#wva_wrapper_btn').on('click', function(e){
@@ -503,11 +509,21 @@
                $('#wva_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
            }
        });
+         var target = $(this);
+          setTimeout(function(){
+
+            if( target.length ) {
+
+                $('html, body').stop().animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+            }
+        }, 500);
 
     });
 
 
-     // modal
+     // -----  modal
      $(window).on('load', function(){
          setTimeout(function(){
              $('#seq_modal').modal();
@@ -526,7 +542,7 @@
          $('.second').slideDown().addClass('active').addClass('in');
      });
 
-     function check_seqeunce(seq){
+     function check_seqeunce(seq, element){
          var seq_letter = seq.charAt(0),
              sub = seq.substring(1),
              group_1 = [],
@@ -542,7 +558,7 @@
                      msg: 'Invalid input for the sequence'
                  }
 
-                  $('.help-block-sq').html(errors.msg + errors.seq);
+                  $('.help-block-' + element).html(errors.msg + errors.seq);
                  return;
              }
 
@@ -561,16 +577,16 @@
              });
              if(error_list){
                   errors = {
-                     msg: 'The sequence structure is valid but pairs in with red color aren\'t. Please fix those pairs, and press "Generate" button again',
+                     msg: 'The sequence format is valid but pairs with red color below aren\'t. Please fix those pairs, and press "Generate" button again',
                      seq: error_seq,
                      error_flag: 1
                  }
 
-                 $('.help-block-sq').html(errors_reporting_2(errors));
+                 $('.help-block-' + element).html(errors_reporting_2(errors));
                  return;
              }
 
-             $('.help-block-sq').html('');
+             $('.help-block-' +  + element).html('');
              var seq_return = {
                  letter: seq_letter,
                  seq: error_seq,
@@ -584,22 +600,8 @@
          return !isNaN(num)
      }
 
-    /* function errors_reporting(sequence_index, sequence_elem){
-         var seq_suffix = '';
-         if(sequence_index == 1){
-             seq_suffix = 'st';
-         }else if(sequence_index == 2){
-             seq_suffix = 'nd';
-         }else if(sequence_index == 3){
-             seq_suffix = 'rd';
-         }else{
-             seq_suffix = 'th';
-         }
-         return '<div>' + sequence_index + seq_suffix + ' sequence. The first sequence value (' + sequence_elem[0] + ') cannot be greater than the second (' + sequence_elem[1] + ')</div>';
-     }*/
 
      function errors_reporting_2(errors){
-
          return '<p>' + errors.msg + '</p>' + '<p>' + errors.seq + '</p>';
      }
 
@@ -619,12 +621,12 @@
             group_1 = sub.match(/.{1,4}/g),
             seq_array = []
             ;
-            console.log(sub);
+
 
         group_1.forEach(function(el){
             var el_2 = el.match(/.{1,2}/g);
             if(el_2[0] > el_2[1]){
-                console.log('Sranje');
+
             }else{
                 seq_array.push([el_2[0], el_2[1]]);
             }
@@ -639,59 +641,179 @@
         e.preventDefault();
         var sq_val = $('#sq_seq_insert').val().trim(),
             wpp_val = $('#wpp_seq_insert').val().trim(),
-            wva_val = $('#wva_seq_insert').val().trim();
+            wva_val = $('#wva_seq_insert').val().trim(),
+            valid_sq = false,
+            valid_wpp = false,
+            valid_wva = false;
       if (e.isDefaultPrevented()) {
         // all values are empty
         if((sq_val.length == 0) && (wpp_val.length == 0) && (wva_val.length == 0)){
 
-            $('.error_container').html('<div class="alert alert-warning empty_warning">Pleae enter at least one sequence. If you want to start with default values, click on the <strong>Continue with default codes</strong> button.</div>');
+            $('.error_container').html('<div class="alert alert-warning empty_warning">Please enter at least one sequence. If you want to start with default values, click on the <strong><span class="redCo">Continue with default codes</span></strong> button.</div>');
             setTimeout(function(){
                 $('.empty_warning').slideUp();
-                return;
             },8000);
+            return;
         }
 
-        // ??? (sq_val.length != 25) ????
-        else if(sq_val.length != 0){        // sequence check
-            var sq_seq_insert = check_seqeunce(sq_val),
+        // sq insert loop
+        if(sq_val.length != 0){        // sequence check
+            var sq_seq_insert = check_seqeunce(sq_val, 'sq'),
                 sq_array = [],
                 i = 1;
 
             if(typeof sq_seq_insert == 'undefined'){
-                console.log('late return');
                 return;
             }
 
-
             sq_array = convert_sequence(sq_seq_insert);
 
-
-
-            console.log(sq_val);
-            console.log(sq_seq_insert);
-            console.log(sq_array);
-            /*for(var i = 1; i <= 6; i++){
-                var slider = 'slider_' + i;
-            }*/
             $.each(sq_array, function(index, val){
                 var current_slider = document.getElementById('sq_' + i);
-                console.log(current_slider);
-                console.log(index);
-                console.log(val);
-                console.log(typeof current_slider);
                 current_slider.noUiSlider.set(val);
                 i++;
-
             });
 
+            valid_sq = true;
+
+           /* $('#sq_wrapper').slideToggle('1200').promise().done(function() {
+                if( $('#sq_title_toggle').hasClass('glyphicon-chevron-right') ) {
+                    $('#sq_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+                }else{
+                    $('#sq_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+                }
+            });*/
+        }
+
+        // wpp insert loop
+        if(wpp_val.length != 0){        // sequence check
+            var wpp_seq_insert = check_seqeunce(wpp_val, 'wpp'),
+                wpp_array = [],
+                i = 1;
+
+            if(typeof wpp_seq_insert == 'undefined'){
+
+                return;
+            }
+
+            wpp_array = convert_sequence(wpp_seq_insert);
+
+            $.each(wpp_array, function(index, val){
+                var current_slider = document.getElementById('wpp_' + i);
+                current_slider.noUiSlider.set(val);
+                i++;
+            });
+
+            valid_wpp = true;
+
+             /*$('#wpp_wrapper').slideToggle('slow').promise().done(function() {
+                if( $('#wpp_title_toggle').hasClass('glyphicon-chevron-right') ) {
+                    $('#wpp_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+                }else{
+                    $('#wpp_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+                }
+            });*/
+        }
+
+        // wva insert loop
+        if(wva_val.length != 0){        // sequence check
+            var wva_seq_insert = check_seqeunce(wva_val, 'wva'),
+                wva_array = [],
+                i = 1;
+
+            if(typeof wva_seq_insert == 'undefined'){
+                return;
+            }
+
+            wva_array = convert_sequence(wva_seq_insert);
+
+            $.each(wva_array, function(index, val){
+                var current_slider = document.getElementById('wva_' + i);
+                current_slider.noUiSlider.set(val);
+                i++;
+            });
+
+            valid_wva = true;
+
+             /*$('#wva_wrapper').slideToggle().promise().done(function() {
+                if( $('#wva_title_toggle').hasClass('glyphicon-chevron-right') ) {
+                    $('#wva_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+                }else{
+                    $('#wva_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+                }
+            });*/
         }
 
 
+        $('#seq_modal').modal('hide');
+
+        // open containers
+        if(valid_sq){
+            $('#sq_wrapper').slideToggle('sloq').promise().done(function() {
+                if( $('#sq_title_toggle').hasClass('glyphicon-chevron-right') ) {
+                    $('#sq_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+                }else{
+                    $('#sq_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+                }
+            });
+        }
+
+        if(valid_wpp){
+            $('#wpp_wrapper').slideToggle('slow').promise().done(function() {
+                if( $('#wpp_title_toggle').hasClass('glyphicon-chevron-right') ) {
+                    $('#wpp_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+                }else{
+                    $('#wpp_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+                }
+            });
+        }
+
+        if(valid_wva){
+            $('#wva_wrapper').slideToggle('slow').promise().done(function() {
+                if( $('#wva_title_toggle').hasClass('glyphicon-chevron-right') ) {
+                    $('#wva_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+                }else{
+                    $('#wva_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+                }
+            });
+        }
+
       } else {
         // everything looks good!
+         $('#seq_modal').modal('hide');
       }
 
-    })
+    });
+
+    $('#close_modal, #close_modal_2').on('click', function(e){
+        e.preventDefault();
+
+        $('#sq_wrapper').slideToggle('slow').promise().done(function() {
+            if( $('#sq_title_toggle').hasClass('glyphicon-chevron-right') ) {
+                $('#sq_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+            }else{
+                $('#sq_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+            }
+        });
+
+        $('#wpp_wrapper').slideToggle('slow').promise().done(function() {
+            if( $('#wpp_title_toggle').hasClass('glyphicon-chevron-right') ) {
+                $('#wpp_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+            }else{
+                $('#wpp_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+            }
+        });
+
+        $('#wva_wrapper').slideToggle('slow').promise().done(function() {
+            if( $('#wva_title_toggle').hasClass('glyphicon-chevron-right') ) {
+                $('#wva_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+            }else{
+                $('#wva_title_toggle').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+            }
+        });
+
+        $('#seq_modal').modal('hide');
+    });
 
 })();
 

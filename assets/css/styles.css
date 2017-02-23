@@ -151,7 +151,7 @@ h1{
     font-size: 26px;
     font-weight: bold;
     text-align: center;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), -1px -1px 1px rgba(0, 0, 0, 0.7);
+    /* text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), -1px -1px 1px rgba(0, 0, 0, 0.7); */
 }
 .header_triangle{
     position: relative;
@@ -179,7 +179,7 @@ ul.benchmark{
     color: #fff;
     font-size: 16px;
     font-weight: bold;
-    text-shadow: 1px 1px rgba(0,0,0,0.6);
+    /* text-shadow: 1px 1px rgba(0,0,0,0.6); */
 }
 .benchmark_label{
     font-size: 18px;
@@ -236,6 +236,16 @@ p.squences span{
 }
 
 /* overrides */
+.modal-body .form-control{
+  font-size: 13px;
+}
+.has-feedback label ~ .form-control-feedback{
+  top: 30px;
+  right: 10px;
+}
+.has-feedback .form-control{
+  padding-right: 25px;
+}
 .help-block{
     text-align: center;
 }

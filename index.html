@@ -6,11 +6,12 @@
         <title>JOB ANALYSIS - BAR CALCULATOR</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
      <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
-      <!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+      <!--
       <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css"> -->
        <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
        <link rel="stylesheet" type="text/css" href="assets/css/nouislider.min.css">
@@ -379,7 +380,7 @@
 
                 <div class="col-md-3">
                     <div class="row text-center hidden-sm hidden-xs">
-                        <div class="col-xs-12">
+                        <div class="col-xs-12 grey">
                            Range
                         </div>
 
@@ -696,7 +697,7 @@
 
                 <div class="col-md-3">
                     <div class="row text-center hidden-sm hidden-xs">
-                        <div class="col-xs-12">
+                        <div class="col-xs-12 grey">
                            Range
                         </div>
 
@@ -997,7 +998,8 @@
                         - OR -
                         </div>
                         <div class="col-xs-12 m10">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">GENERATE WITH DEFAULT VALUES</button>
+                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">GENERATE WITH DEFAULT VALUES</button> -->
+                            <button type="button" class="btn btn-default" id="close_modal">GENERATE WITH DEFAULT VALUES</button>
                         </div>
                     </div>
 
@@ -1006,28 +1008,36 @@
                       <div class="second">
                         <h4 class="modal-title" data-step="1">Enter your benchmark code and click <span class="text-info">GENERATE</span></h4>
                         <form id="seq_form" method="post" action="#" data-toggle="validator"  role="form" novalidate>
-                            <div class="form-group col-sm-12 col-md-4">
+                            <div class="form-group has-feedback col-sm-12 col-md-4">
                               <label class="sq_seq_label" for="sq_seq_insert">SQ Sequence Code</label>
-                              <input pattern="^[S][0-9]{24}$" name="sq_seq_insert" type="text" class="form-control" id="sq_seq_insert" placeholder="SQ Sequence Code">
-                              <span  class="help-block help-block-sq"></span>
+                              <input pattern="^[S][0-9]{24}$" name="sq_seq_insert" type="text" class="form-control" id="sq_seq_insert" placeholder="SQ Sequence Code" data-validate="true" data-pattern-error="The sequence is not valid">
+                              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                              <span  class="help-block help-block-sq with-errors"></span>
                             </div>
 
-                            <div class="form-group col-sm-12 col-md-4">
+                            <div class="form-group has-feedback col-sm-12 col-md-4">
                               <label class="wpp_seq_label" for="wpp_seq_insert">WPP Sequence Code</label>
-                              <input pattern="^[W][0-9]{28}$" name="wpp_seq_insert" type="text" class="form-control" id="wpp_seq_insert" placeholder="WPP Sequence Code">
+                              <input pattern="^[W][0-9]{28}$" name="wpp_seq_insert" type="text" class="form-control" id="wpp_seq_insert" placeholder="WPP Sequence Code" data-validate="true" data-pattern-error="The sequence is not valid">
+                              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                              <span  class="help-block help-block-wpp with-errors"></span>
                             </div>
 
-                            <div class="form-group col-sm-12 col-md-4">
+                            <div class="form-group has-feedback col-sm-12 col-md-4">
                               <label class="wva_seq_label" for="wva_seq_insert">WVA Sequence Code</label>
-                              <input pattern="^[V][0-9]{24}$" name="wva_seq_insert" type="text" class="form-control" id="wva_seq_insert" placeholder="WVA Sequence Code">
+                              <input pattern="^[V][0-9]{24}$" name="wva_seq_insert" type="text" class="form-control" id="wva_seq_insert" placeholder="WVA Sequence Code" data-validate="true" data-pattern-error="The sequence is not valid">
+                              <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                              <span  class="help-block help-block-wva with-errors"></span>
                             </div>
 
+                            <div class="col-xs-12">
+                                <div class="error_container"></div>
+                            </div>
 
                             <div class="form-group col-xs-12 mT50">
                               <button class="btn btn-primary btn-lg">GENERATE</button>
                             </div>
                             <div class="form-group col-xs-12">
-                                <a class="btn btn-default" data-dismiss="modal" aria-hidden="true">Contiinue with default codes</a>
+                                <a class="btn btn-default" id="close_modal_2">Contiinue with default codes</a>
                             </div>
                         </form>
                       </div>
@@ -1047,7 +1057,7 @@
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="assets/js/jquery.min.js"><\/script>')</script>
         <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="assets/js/nouislider.min.js"></script>
         <script type="text/javascript" src="assets/js/wNumb.js"></script>
