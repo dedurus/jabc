@@ -242,11 +242,21 @@ p.squences span{
 }
 
 /* overrides */
+.btn{
+  border-radius: 0;
+}
+.form-control{
+  border-radius: 0;
+}
+.form-group.has-error .form-control{
+  border-color: #dd4b39;
+  box-shadow: none;
+}
 .modal-body .form-control{
   font-size: 13px;
 }
 .has-feedback label ~ .form-control-feedback{
-  top: 30px;
+  top: 32px;
   right: 10px;
 }
 .has-feedback .form-control{
@@ -256,8 +266,14 @@ p.squences span{
     text-align: center;
 }
 .help-block p{
-  background-color: #f2dede;
-  border: 1px solid #dca7a7;
+  background-color: #A10728;
+  color: #fff;
+}
+.errored_sequence{
+  font-size: 13px;
+}
+.has-success .help-block{
+  color: #fff;
 }
 .label{
     font-size: 85%;
@@ -410,17 +426,23 @@ h4.modal-title{
     font-size: 12px;
 }
 .help-block p{
-  margin: 10px;
+  margin: 10px 0;
+  padding: 2px;
 }
 .error_span{
-  color: red;
+  color: yellow;
   font-weight: bold;
-  font-size: 16px;
-  text-decoration: underline;
+  font-size: 14px;
+  /* text-decoration: underline; */
   padding-left: 2px;
   padding-right: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border: 1px solid yellow;
 }
-
+.with-errors{
+  color: red;
+}
 
 
 /****** media queries ******/

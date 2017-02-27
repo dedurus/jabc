@@ -563,37 +563,42 @@
              }
 
              group_1 = sub.match(/.{1,4}/g);
+             console.log(group_1);
 
-             group_1.forEach(function(el){
-                 var el_2 = el.match(/.{1,2}/g);
-                 if(el_2[0] > el_2[1]){
-                     error_list = true;
-                     error_seq += '<span class="error_span">' + el_2[0] + el_2[1] + '</span>';
-                 console.info('ERROR!');
-                 }else{
-                     error_seq += el_2[0] + el_2[1];
+             if(group_1){
+                 group_1.forEach(function(el){
+                     var el_2 = el.match(/.{1,2}/g);
+                     if(el_2[0] > el_2[1]){
+                         error_list = true;
+                         error_seq += '<span class="error_span">' + el_2[0] + ' ' + el_2[1] + '</span>';
+                     console.info('ERROR!');
+                     }else{
+                         error_seq += el_2[0] + el_2[1];
+                     }
+                     i++;
+                 });
+                 if(error_list){
+                      errors = {
+                         msg: 'The sequence format is valid but pairs with yellow color below aren\'t. Please fix those pairs, and press "Generate" button again',
+                         seq: error_seq,
+                         error_flag: 1
+                     }
+
+                     $('.help-block-' + element).html(errors_reporting_2(errors));
+                     return;
                  }
-                 i++;
-             });
-             if(error_list){
-                  errors = {
-                     msg: 'The sequence format is valid but pairs with red color below aren\'t. Please fix those pairs, and press "Generate" button again',
+
+                 $('.help-block-' + element).html('');
+                 var seq_return = {
+                     letter: seq_letter,
                      seq: error_seq,
-                     error_flag: 1
+                     error_flag: 0
                  }
 
-                 $('.help-block-' + element).html(errors_reporting_2(errors));
-                 return;
+                 return seq_return;
+             }else{
+                console.log('gr1 not null');
              }
-
-             $('.help-block-' +  + element).html('');
-             var seq_return = {
-                 letter: seq_letter,
-                 seq: error_seq,
-                 error_flag: 0
-             }
-
-             return seq_return;
      }
 
      function isNumeric(num){
@@ -785,7 +790,7 @@
 
     });
 
-    $('#close_modal, #close_modal_2').on('click', function(e){
+   /* $('#close_modal, #close_modal_2').on('click', function(e){
         e.preventDefault();
 
         $('#sq_wrapper').slideToggle('slow').promise().done(function() {
@@ -813,6 +818,29 @@
         });
 
         $('#seq_modal').modal('hide');
+    });*/
+
+
+    // on-input validation
+    $('#sq_seq_insert').on('keyup keypress blur change input', function(e){
+        var inserted = $(this).val();
+        if(inserted.length == 25){
+            console.log(check_seqeunce(inserted, 'sq'));
+        }
+    });
+
+    $('#wpp_seq_insert').on('keyup keypress blur change input', function(e){
+        var inserted = $(this).val();
+        if(inserted.length == 29){
+            check_seqeunce(inserted, 'wpp');
+        }
+    });
+
+    $('#wva_seq_insert').on('keyup keypress blur change input', function(e){
+        var inserted = $(this).val();
+        if(inserted.length == 25){
+            check_seqeunce(inserted, 'wva');
+        }
     });
 
 })();
