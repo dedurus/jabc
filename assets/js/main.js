@@ -337,8 +337,8 @@
 
             // generate appropriate field name
             var input_field_name = slider_id + '_' + handle,
-                current_field = $('#' + input_field_name + '_' + handle),
                 input_field = $('#' + input_field_name);
+                current_field = $('#' + input_field_name + '_' + handle);
             input_field.val(values[handle]);
             current_field.text(values[handle]);
         });
@@ -564,10 +564,10 @@
 
      // URL generator
      function url_generator(btn, wpp_code, sq_code, wva_code, job_title = ''){
-        var job_title = {
+        var j_t = {
                 w2t: $('#job_title').val()
             },
-            param_title = $.param( job_title ),
+            param_title = $.param( j_t ),
             url = 'https://assessments.talentclick.com/s3/TCT155Benchmark?w2=' + wpp_code + param_title + '&s2=' + sq_code+ '&v2=' + wva_code;
 
         btn.prop('href', url);
@@ -580,7 +580,16 @@
         var wpp_code = $('#wpp_hidden').val(),
             sq_code  = $('#sq_hidden').val(),
             wva_code = $('#wva_hidden').val(),
-            jt = $(this).val();
+            jt = $(this).val(),
+            j_length = $(this).val().length,
+            diff = 30 - j_length;
+            if(diff == 0){
+                $('.job_title_chars').addClass('redCo');
+            }else{
+                $('.job_title_chars').removeClass('redCo');
+            }
+
+                $('.job_title_chars').html(diff);
 
         url_generator($('.external_url'), wpp_code, sq_code, wva_code, jt);
      });
@@ -618,7 +627,7 @@
                  errors = {
                      seq: '',
                      msg: 'Invalid input for the sequence'
-                 }
+                 };
 
                   $('.help-block-' + element).html(errors.msg + errors.seq);
                  return;
@@ -645,16 +654,13 @@
                              msg: 'The pairs marked with yellow color below are not valid entries. Please fix those pairs.',
                              seq: error_seq,
                              error_flag: 1
-                         }
+                         };
 
                          $('.help-block-' + element).html(errors_reporting_2(errors));
                          $('.help-block-' + element).closest('.form-group').removeClass('has-success').addClass('has-error').find('.form-control-feedback').addClass('glyphicon-ok').addClass('glyphicon-remove');
                          return;
                      }
 
-                     if(errors.error_flag){
-
-                     }
 
                     // everything seems fine now
                      $('.help-block-' + element).html('');
@@ -664,23 +670,16 @@
                          letter: seq_letter,
                          seq: error_seq,
                          error_flag: 0
-                     }
+                     };
 
                      return seq_return;
-                 }else{
-                    // this shouldn't be reached since the validation is triggered
-                    // when 25 or 29 characters are inserted
-
                  }
              } // length check
-             /*else{
-                $('.help-block-' + element).html(errors_reporting_2(errors));
-                $('.help-block-' + element).closest('.form-group').removeClass('has-success').addClass('has-error').find('.form-control-feedback').addClass('glyphicon-ok').addClass('glyphicon-remove');
-             }*/
+
      }
 
      function isNumeric(num){
-         return !isNaN(num)
+         return !isNaN(num);
      }
 
 
@@ -861,7 +860,6 @@
                     format = seq.match(regex);
                     //format = seq.match(/^[S][0-9]{24}$/);
                     if(!format){
-                        console.info('NOT A VALID FORMAT MATCH');
                         errors = {
                             msg: 'Please check the sequence code format.',
                             flag: 1
@@ -903,7 +901,6 @@
     // listen to input changes and enable/disable submit button
     $('.modal-inputs').on('keyup keypress change input', function(){
         // no errors
-
         if(validation_errors.sq == 0 && validation_errors.wpp == 0 && validation_errors.wva == 0){
             // check if fields are empty
             if( !($('#sq_seq_insert').val()) && !($('#wpp_seq_insert').val()) && !($('#wva_seq_insert').val()) ){

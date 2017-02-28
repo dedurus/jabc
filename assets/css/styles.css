@@ -287,8 +287,14 @@ p.squences span{
 .bg-primary{
     background: #3E3998;
     font-size: 11px;
-
 }
+.job_title_chars{
+  border-radius: 0;
+  padding: 6px 2px;
+  font-size: 10px;
+}
+
+
 input#wpp_hidden, input#sq_hidden, input#wva_hidden{
     display: none;
     visibility:hidden;
@@ -347,7 +353,8 @@ input#wpp_hidden, input#sq_hidden, input#wva_hidden{
 .blurred{
     /* Blur and de-color */
     filter: blur(4px) grayscale(50%);
-    /* -webkit-filter: blur(4px) grayscale(50%);
+    -webkit-filter: blur(4px) grayscale(50%);
+    /*
     transform: scale(0.95);
     -webkit-transform: scale(0.95);
     transition: all 0.4s ease;
@@ -356,7 +363,8 @@ input#wpp_hidden, input#sq_hidden, input#wva_hidden{
 .not_blurred{
     /* de-blur and re-color */
     filter: blur(0) grayscale(0);
-   /*  -webkit-filter: blur(0) grayscale(0);
+   -webkit-filter: blur(0) grayscale(0);
+   /*
    transform: scale(1);
    -webkit-transform: scale(1);
    transition: all 0.4s ease;
