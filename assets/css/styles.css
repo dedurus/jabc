@@ -195,6 +195,9 @@ ul.benchmark{
     padding: 5px;
     margin-top: 10px;
 }
+#sq_wrapper_btn, #wpp_wrapper_btn, #wva_wrapper_btn{
+  cursor: pointer;
+}
 #sq_wrapper, #wpp_wrapper, #wva_wrapper{
     display: none;
 }
@@ -428,11 +431,12 @@ h4.modal-title{
 .help-block p{
   margin: 10px 0;
   padding: 2px;
+  font-size: 12px;
 }
 .error_span{
   color: yellow;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 13px;
   /* text-decoration: underline; */
   padding-left: 2px;
   padding-right: 2px;
