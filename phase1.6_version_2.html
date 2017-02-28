@@ -940,7 +940,7 @@
             <a href="#" id="footer_btn"><span id="footer_btn_icon" class="glyphicon glyphicon-chevron-down"></span></a>
         </div>
         <div class="row fixed_seq">
-            <div class="col-sm-3 text-center mB20">
+            <div class="col-sm-4 text-center mB20">
                 <p class="sq_seq_txt">SQ Sequence:</p>
                 <p class="sq_sequences">
                     <span>S</span><span id="sq_1_0_0"></span><span id="sq_1_1_1"></span><span id="sq_2_0_0"></span><span id="sq_2_1_1"></span><span id="sq_3_0_0"></span><span id="sq_3_1_1"></span><span id="sq_4_0_0"></span><span id="sq_4_1_1"></span><span id="sq_5_0_0"></span><span id="sq_5_1_1"></span><span id="sq_6_0_0"></span><span id="sq_6_1_1"></span>
@@ -951,7 +951,7 @@
                 <input type="text" id="sq_hidden">
             </div>
 
-            <div class="col-sm-3 text-center mB20">
+            <div class="col-sm-4 text-center mB20">
                 <p class="sq_wpp_txt">WPP Sequence:</p>
                 <p class="wpp_sequences">
                     <span>W</span><span id="wpp_1_0_0"></span><span id="wpp_1_1_1"></span><span id="wpp_2_0_0"></span><span id="wpp_2_1_1"></span><span id="wpp_3_0_0"></span><span id="wpp_3_1_1"></span><span id="wpp_4_0_0"></span><span id="wpp_4_1_1"></span><span id="wpp_5_0_0"></span><span id="wpp_5_1_1"></span><span id="wpp_6_0_0"></span><span id="wpp_6_1_1"></span><span id="wpp_7_0_0"></span><span id="wpp_7_1_1"></span>
@@ -962,7 +962,7 @@
                 <input type="text" id="wpp_hidden">
             </div>
 
-            <div class="col-sm-3 text-center mB20">
+            <div class="col-sm-4 text-center mB20">
                 <p class="sq_wva_txt">WVA Sequence:</p>
                 <p class="wva_sequences">
                     <span>V</span><span id="wva_1_0_0"></span><span id="wva_1_1_1"></span><span id="wva_2_0_0"></span><span id="wva_2_1_1"></span><span id="wva_3_0_0"></span><span id="wva_3_1_1"></span><span id="wva_4_0_0"></span><span id="wva_4_1_1"></span><span id="wva_5_0_0"></span><span id="wva_5_1_1"></span><span id="wva_6_0_0"></span><span id="wva_6_1_1"></span>
@@ -973,14 +973,24 @@
                 <input type="hidden" id="wva_hidden">
             </div>
 
-            <div class="col-sm-3 text-center mB20">
-                <a href="#" class="btn btn-primary btn-sm btn-block single_generator_btn"><i class="fa fa-sliders" aria-hidden="true"></i> Generator</a>
-                <a href="#" target="_blank" class="btn btn-danger btn-sm btn-block external_url"><i class="fa fa-external-link" aria-hidden="true"></i> Try it for yourself!</a>
-            </div>
+        </div>
 
+        <div class="row  hidden-md hidden-lg">
+            <a href="#" class="btn btn-primary btn-sm btn-block single_generator_btn"><i class="fa fa-sliders" aria-hidden="true"></i> Generator</a>
+            <a href="#" target="_blank" class="btn btn-danger btn-sm btn-block external_url"><i class="fa fa-external-link" aria-hidden="true"></i> Try it for yourself!</a>
         </div>
     </div><!-- ./ container -->
     </footer>
+
+    <!-- floating buttons -->
+    <div class="floating_btns hidden-sm hidden-xs">
+        <div class="col-sm-3 text-center mB20">
+            <div class="btn-group-vertical" role="group" aria-label="Generator Modal and Try it Yourself!">
+            <button href="#" class="btn btn-primary btn-sm single_generator_btn tooltip_generator" data-toggle="tooltip" data-placement="left" title="Open Generator"><i class="fa fa-sliders" aria-hidden="true"></i></button>
+            <button href="#" target="_blank" class="btn btn-danger btn-sm external_url tooltip_url" data-toggle="tooltip" data-placement="left" title="Try it Yourself!"><i class="fa fa-external-link" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
 
 
         <!-- modal -->
@@ -1067,10 +1077,8 @@
         <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="assets/js/nouislider.min.js"></script>
         <script type="text/javascript" src="assets/js/wNumb.js"></script>
-        <!-- <script type="text/javascript" src="assets/js/validator.min.js"></script> -->
         <script src="assets/js/clipboard.min.js"></script>
         <script src="assets/js/main.js"></script>
-        <!-- <script src="assets/js/main.js"></script> -->
 
     </body>
 </html>

@@ -745,9 +745,11 @@
         }else{
             final_message = '';
             validation_errors.sq = 0;
-            $('#sq_seq_insert').closest('.form-group').removeClass('has-error')
-                                       .addClass('has-success').find('.form-control-feedback')
-                                       .removeClass('glyphicon-remove').addClass('glyphicon-ok');
+            if($('#sq_seq_insert').val()){
+                $('#sq_seq_insert').closest('.form-group').removeClass('has-error')
+                                           .addClass('has-success').find('.form-control-feedback')
+                                           .removeClass('glyphicon-remove').addClass('glyphicon-ok');
+            }
         }
 
         $('.help-block-sq').html(final_message);
@@ -766,10 +768,18 @@
             }else{
                 final_message_2 = '<p>' + test_2.msg + '</p>';
             }
+            $('#wpp_seq_insert').closest('.form-group').removeClass('has-success')
+                                       .addClass('has-error').find('.form-control-feedback')
+                                       .removeClass('glyphicon-ok').addClass('glyphicon-remove');
             validation_errors.wpp = 1;
         }else{
             final_message_2 = '';
             validation_errors.wpp = 0;
+            if($('#wpp_seq_insert').val()){
+                $('#wpp_seq_insert').closest('.form-group').removeClass('has-error')
+                                           .addClass('has-success').find('.form-control-feedback')
+                                           .removeClass('glyphicon-remove').addClass('glyphicon-ok');
+            }
         }
         $('.help-block-wpp').html(final_message_2);
     });
@@ -787,10 +797,18 @@
             }else{
                 final_message_3 = '<p>' + test_3.msg + '</p>';
             }
+            $('#wva_seq_insert').closest('.form-group').removeClass('has-success')
+                                       .addClass('has-error').find('.form-control-feedback')
+                                       .removeClass('glyphicon-ok').addClass('glyphicon-remove');
             validation_errors.wva = 1;
         }else{
             final_message_3 = '';
             validation_errors.wva = 0;
+            if($('#wva_seq_insert').val()){
+                $('#wva_seq_insert').closest('.form-group').removeClass('has-error')
+                                           .addClass('has-success').find('.form-control-feedback')
+                                           .removeClass('glyphicon-remove').addClass('glyphicon-ok');
+            }
         }
         $('.help-block-wva').html(final_message_3);
     });
@@ -1096,6 +1114,14 @@
 
             $('#seq_modal').modal('hide');
         });
+
+
+    $('.tooltip_generator').tooltip({
+        container: 'body'
+    });
+    $('.tooltip_url').tooltip({
+        container: 'body'
+    });
 
 
 })();

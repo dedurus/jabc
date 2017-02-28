@@ -447,7 +447,12 @@ h4.modal-title{
 .with-errors{
   color: red;
 }
-
+.floating_btns{
+  position: fixed;
+  top: 50%;
+  right: 0;
+  width: 50px;
+}
 
 /****** media queries ******/
 @media screen and (min-width: 992px){
