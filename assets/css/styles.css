@@ -455,6 +455,34 @@ h4.modal-title{
 .with-errors{
   color: red;
 }
+.external_url{
+  /* white-space: normal; */
+}
+span.button_text{
+    vertical-align:middle;
+    display:inline-block;
+    width:90%;
+}
+.external_url [class^="fa-"],
+.external_url [class*=" fa-"] {
+  display:inline-block;
+  vertical-align:middle;
+  padding:14px;
+  width:10%;
+  font-size: 20px;
+}
+
+.external_url [class^="fa-"]:before,
+.external_url [class*=" fa-"]:before {
+  display:table;
+  vertical-align:middle;
+}
+
+.external_url [class^="fa-"]:after,
+.external_url [class*=" fa-"]:after {
+  display:table;
+  vertical-align:middle;
+}
 .floating_btns{
   position: fixed;
   top: 50%;
@@ -463,6 +491,30 @@ h4.modal-title{
 }
 
 /****** media queries ******/
+@media screen and (max-width: 1024px){
+  .sq_sequences, .wpp_sequences, .wva_sequences{
+    font-size: 11px;
+    -ms-word-break: break-all;
+        word-break: break-all;
+
+     /* Non standard for webkit */
+         word-break: break-word;
+
+        -webkit-hyphens: auto;
+           -moz-hyphens: auto;
+            -ms-hyphens: auto;
+                hyphens: auto;
+
+  }
+  .external_url{
+    font-size: 14px;
+  }
+  .external_url [class^="fa-"],
+  .external_url [class*=" fa-"] {
+    padding:10px 0;
+    font-size: 16px;
+  }
+}
 @media screen and (min-width: 992px){
     .modal-dialog{
         width: 900px;
@@ -493,6 +545,12 @@ h4.modal-title{
 @media screen and (max-width: 768px){
     .header_triangle{
         text-align: center;
+    }
+    .sq_sequences, .wpp_sequences, .wva_sequences{
+      font-size: 10px;
+    }
+    .external_url{
+      font-size: 12px;
     }
 
 }

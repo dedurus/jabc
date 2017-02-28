@@ -127,9 +127,9 @@
 
     //WPP Sliders ====
     noUiSlider.create(wpp_slider_1, {
-        start: [20, 80],
+        start: [25, 75],
         connect: true,
-        range: wpp_sliders,
+        range: sq_sliders,
         pips: {
                 mode: 'range',
                 density: 1
@@ -140,9 +140,9 @@
         })
     });
     noUiSlider.create(wpp_slider_2, {
-        start: [20, 80],
+        start: [25, 75],
         connect: true,
-        range: wpp_sliders,
+        range: sq_sliders,
         pips: {
                 mode: 'range',
                 density: 1
@@ -153,9 +153,9 @@
         })
     });
     noUiSlider.create(wpp_slider_3, {
-        start: [20, 80],
+        start: [25, 75],
         connect: true,
-        range: wpp_sliders,
+        range: sq_sliders,
         pips: {
                 mode: 'range',
                 density: 1
@@ -166,9 +166,9 @@
         })
     });
     noUiSlider.create(wpp_slider_4, {
-        start: [20, 80],
+        start: [25, 75],
         connect: true,
-        range: wpp_sliders,
+        range: sq_sliders,
         pips: {
                 mode: 'range',
                 density: 1
@@ -179,9 +179,9 @@
         })
     });
     noUiSlider.create(wpp_slider_5, {
-        start: [20, 80],
+        start: [25, 75],
         connect: true,
-        range: wpp_sliders,
+        range: sq_sliders,
         pips: {
                 mode: 'range',
                 density: 1
@@ -192,9 +192,9 @@
         })
     });
     noUiSlider.create(wpp_slider_6, {
-        start: [20, 80],
+        start: [25, 75],
         connect: true,
-        range: wpp_sliders,
+        range: sq_sliders,
         pips: {
                 mode: 'range',
                 density: 1
@@ -205,9 +205,9 @@
         })
     });
     noUiSlider.create(wpp_slider_7, {
-        start: [20, 80],
+        start: [25, 75],
         connect: true,
-        range: wpp_sliders,
+        range: sq_sliders,
         pips: {
                 mode: 'range',
                 density: 1
@@ -568,7 +568,7 @@
                 w2t: $('#job_title').val()
             },
             param_title = $.param( j_t ),
-            url = 'https://assessments.talentclick.com/s3/TCT155Benchmark?w2=' + wpp_code + param_title + '&s2=' + sq_code+ '&v2=' + wva_code;
+            url = 'https://assessments.talentclick.com/s3/TCT155Benchmark?w2=' + wpp_code + '&' + param_title + '&s2=' + sq_code+ '&v2=' + wva_code;
 
         btn.prop('href', url);
      }
