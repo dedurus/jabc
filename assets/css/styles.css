@@ -81,6 +81,9 @@ body {
 .m30{
     margin: 30px;
 }
+.mT5{
+  margin-top: 5px;
+}
 .mT10{
     margin-top: 10px;
 }
@@ -462,6 +465,7 @@ span.button_text{
     vertical-align:middle;
     display:inline-block;
     width:90%;
+    font-size: 16px;
 }
 .external_url [class^="fa-"],
 .external_url [class*=" fa-"] {
@@ -508,11 +512,15 @@ span.button_text{
   }
   .external_url{
     font-size: 14px;
+    padding: 10px;
   }
   .external_url [class^="fa-"],
   .external_url [class*=" fa-"] {
     padding:10px 0;
     font-size: 16px;
+  }
+  span.button_text{
+    font-size: 14px;
   }
 }
 @media screen and (min-width: 992px){
