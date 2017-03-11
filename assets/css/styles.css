@@ -160,11 +160,7 @@ h1{
     font-size: 26px;
     font-weight: bold;
     text-align: center;
-<<<<<<< HEAD
-    text-shadow: 1px 1px #000;
-=======
     /* text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), -1px -1px 1px rgba(0, 0, 0, 0.7); */
->>>>>>> offline
 }
 .header_triangle{
     position: relative;
@@ -192,11 +188,7 @@ ul.benchmark{
     color: #fff;
     font-size: 16px;
     font-weight: bold;
-<<<<<<< HEAD
-    text-shadow: 1px 1px #000;
-=======
     /* text-shadow: 1px 1px rgba(0,0,0,0.6); */
->>>>>>> offline
 }
 .benchmark_label{
     font-size: 18px;
@@ -206,12 +198,9 @@ ul.benchmark{
     padding: 5px;
     margin-top: 10px;
 }
-<<<<<<< HEAD
-=======
 #sq_wrapper_btn, #wpp_wrapper_btn, #wva_wrapper_btn{
   cursor: pointer;
 }
->>>>>>> offline
 #sq_wrapper, #wpp_wrapper, #wva_wrapper{
     display: none;
 }
