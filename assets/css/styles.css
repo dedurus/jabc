@@ -418,9 +418,10 @@ h4.modal-title{
 
 }
 .modal-footer{
-  text-align: left;
-  margin: 30px 20px 20px;
+  text-align: center;
+  /* margin: 30px 20px 20px; */
 }
+/*
 .modal-footer a{
   padding: 10px 16px;
   background: #f2422d;
@@ -431,9 +432,13 @@ h4.modal-title{
 .modal-footer a:hover{
   text-decoration: none;
   background: #F26D2D;
-}
-.second{
+} */
+/* .modal_footer_btns, */
+.second, .third{
     display: none;
+}
+.modal_steps i, .modal-footer i{
+  margin-right: 10px;
 }
 .error_container{
     line-height: 14px;

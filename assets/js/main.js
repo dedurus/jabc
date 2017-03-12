@@ -548,14 +548,19 @@
          }, 500);
      });
 
-     $('#second_step').on('click', function(e){
-         $('.first').slideUp();
+     $('#second_step, .second_step').on('click', function(e){
+         $('.modal_steps').slideUp();
          $('.second').slideDown().addClass('active').addClass('in');
+     });
+
+     $('#third_step, .third_step').on('click', function(e){
+         $('.modal_steps').slideUp();
+         $('.third').slideDown().addClass('active').addClass('in');
      });
 
      $('.single_generator_btn').on('click', function(e){
         e.preventDefault();
-        $('.first').slideUp();
+        $('.modal_steps').slideUp();
         $('.second').slideDown().addClass('active').addClass('in');
         $('#seq_modal').modal();
      });
@@ -1082,7 +1087,7 @@
 
 
     // Generate default values (user has closed the modal without entries)
-    $('#close_modal, #close_modal_2').on('click', function(e){
+    $('#close_modal, #close_modal_2, .close_modal').on('click', function(e){
             e.preventDefault();
 
             $('#sq_wrapper').slideToggle('slow').promise().done(function() {

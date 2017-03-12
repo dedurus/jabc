@@ -995,25 +995,34 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
               </div>
               <div class="modal-body">
-                  <div class="first fade in active">
-                    <h4 class="modal-title" data-step="1">Generate a Benchmark</h4>
-                    <div class="row">
-                        <div class="col-xs-12 m10">
-                            <a href="#" class="btn btn-primary" id="second_step">I HAVE A BENCHMARK CODE</a>
-                        </div>
-                        <div class="col-xs-12 m10">
-                        - OR -
-                        </div>
-                        <div class="col-xs-12 m10">
-                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">GENERATE WITH DEFAULT VALUES</button> -->
-                            <button type="button" class="btn btn-default" id="close_modal">GENERATE WITH DEFAULT VALUES</button>
+
+                    <div class="first modal_steps fade in active">
+                        <!-- TABS? -->
+                        <!-- <ul class="nav nav-tabs nav-justified">
+                          <li role="presentation" class="active"><a href="#">Home</a></li>
+                          <li role="presentation"><a href="#">Profile</a></li>
+                          <li role="presentation"><a href="#">Messages</a></li>
+                        </ul> -->
+                        <h4 class="modal-title" data-step="1">Generate a Benchmark</h4>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <a href="#" class="btn btn-primary btn-lg" id="second_step"><i class="fa fa-sliders"></i> I HAVE A BENCHMARK CODE</a>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a href="#" class="btn btn-warning btn-lg" id="third_step"><i class="fa fa-gears"></i> USE LIBRARY</a>
+                            </div>
+                            <div class="col-xs-12 m10">
+                            - OR -
+                            </div>
+                            <div class="col-xs-12 m10">
+                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">GENERATE WITH DEFAULT VALUES</button> -->
+                                <button type="button" class="btn btn-default" id="close_modal">GENERATE WITH DEFAULT VALUES</button>
+                            </div>
                         </div>
                     </div>
 
-                  </div>
-
-                      <div class="second">
-                        <h4 class="modal-title" data-step="1">Enter your benchmark code and click <span class="text-info">GENERATE</span></h4>
+                    <div class="second modal_steps">
+                        <h4 class="modal-title" data-step="2">Enter your benchmark code and click <span class="text-info">GENERATE</span></h4>
                         <form id="seq_form" method="post" action="#" data-toggle="validator"  role="form" novalidate>
                             <div class="form-group has-feedback col-sm-12 col-md-4">
                               <label class="sq_seq_label" for="sq_seq_insert">SQ Sequence Code</label>
@@ -1049,13 +1058,30 @@
                                 <a class="btn btn-default" id="close_modal_2">Contiinue with default codes</a>
                             </div>
                         </form>
-                      </div>
+                    </div>
+
+                    <div class="third modal_steps">
+                        <h4 class="modal-title" data-step="3">Libraries</h4>
+                        <div class="row">
+
+                        </div>
+                    </div><!-- ./third -->
 
                </div>
 
                <div class="modal-footer">
-
-                   </div>
+                    <div class="row modal_footer_btns">
+                        <div class="col-xs-4">
+                            <a href="#" class="btn btn-primary btn-block second_step"><i class="fa fa-sliders"></i> I HAVE A BENCHMARK CODE</a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a href="#" class="btn btn-info btn-block third_step"><i class="fa fa-gears"></i> USE LIBRARY</a>
+                        </div>
+                        <div class="col-xs-4">
+                            <button type="button" class="btn btn-default btn-block close_modal">GENERATE WITH DEFAULT VALUES</button>
+                        </div>
+                    </div>
+                </div>
 
             </div>
           </div>
@@ -1071,6 +1097,7 @@
         <script type="text/javascript" src="assets/js/nouislider.min.js"></script>
         <script type="text/javascript" src="assets/js/wNumb.js"></script>
         <!-- <script type="text/javascript" src="assets/js/validator.min.js"></script> -->
+        <script src="assets/js/jquery.slimscroll.min.js"></script>
         <script src="assets/js/clipboard.min.js"></script>
         <script src="assets/js/main.js"></script>
         <!-- <script src="assets/js/main.js"></script> -->
