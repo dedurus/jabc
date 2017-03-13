@@ -236,6 +236,7 @@ p.sq_seq_txt, .sq_seq_label{
 }
 p.sq_seq_txt, p.sq_wpp_txt, p.sq_wva_txt{
     font-size: 12px;
+    margin-bottom: 0;
 }
 .sq_seq_label, .wpp_seq_label, .wva_seq_label{
     font-size: 14px;
@@ -332,6 +333,9 @@ input#wpp_hidden, input#sq_hidden, input#wva_hidden{
     padding-top: 10px;
     padding-bottom: 50px;
     border-top: 1px solid #D3D3D3;
+}
+.slider_wrapper input[type="text"]{
+  text-align: center;
 }
 .form-control_focused_0 {
     border-color: #FC022B;
@@ -479,7 +483,7 @@ span.button_text{
   vertical-align:middle;
   padding:14px;
   width:10%;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .external_url [class^="fa-"]:before,
@@ -552,7 +556,7 @@ dl.radio-list-left dd label:hover{
 }
 dl {
   /* max-width: 350px; */
-  margin: 5px auto;
+  margin: 15px auto;
 }
 dl dt {
   margin: 3em 0 5px;

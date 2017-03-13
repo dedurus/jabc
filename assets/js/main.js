@@ -1209,6 +1209,8 @@
 
         // open containers
         if(valid_sq){
+            $('#sq_wrapper_btn').show();
+            $('#btn_sq').prop('disabled', false);
             $('#sq_wrapper').slideDown('sloq').promise().done(function() {
                 if( $('#sq_title_toggle').hasClass('glyphicon-chevron-right') ) {
                     $('#sq_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
