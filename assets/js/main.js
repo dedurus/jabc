@@ -550,20 +550,74 @@
 
      $('#second_step, .second_step').on('click', function(e){
          $('.modal_steps').slideUp();
+         $('.modal_footer_btns').hide();
          $('.second').slideDown().addClass('active').addClass('in');
+         $('.modal_footer_insert').show();
      });
 
      $('#third_step, .third_step').on('click', function(e){
          $('.modal_steps').slideUp();
+         $('.modal_footer_btns').hide();
          $('.third').slideDown().addClass('active').addClass('in');
+         $('.modal_footer_library').show();
      });
 
      $('.single_generator_btn').on('click', function(e){
         e.preventDefault();
         $('.modal_steps').slideUp();
+        $('.modal_footer_btns').hide();
         $('.second').slideDown().addClass('active').addClass('in');
+        $('.modal_footer_insert').show();
         $('#seq_modal').modal();
      });
+
+
+     // --- Libraries --- //
+     $('.elements').slimScroll({
+         //width: '300px',
+         alwaysVisible: true,
+     });
+
+     $.getJSON( "assets/json/codes.json", function( data ) {
+      var html = '';
+       //var items = '';
+       $.each( data, function( key, val ) {
+         var codes = val.sq_code + '_' + val.wpp_code + '_' + val.wva_code;
+         var sq_badge = val.sq_code ? '<span class="badge sq_badge">SQ</span>' : '<span class="badge sq_badge opacity03">SQ</span>',
+             wpp_badge = val.wpp_code ? '<span class="badge wpp_badge">WPP</span>' : '<span class="badge wpp_badge opacity03">WPP</span>',
+             wva_badge = val.wva_code ? '<span class="badge wva_badge">WVA</span>' : '<span class="badge wva_badge opacity03">WVA</span>';
+         if(val.sq_code){
+            sq_badge = '<span class="badge sq_badge">SQ</span>';
+         }
+         html += '<dd><input type="radio" name="presets" id="pq' + key + '-' + key + '" value="' + codes + '" data-sq="' + val.sq_code + '" data-wpp="' + val.wpp_code + '" data-wva="' + val.wva_code + '" data-job="' + val.job_title + '">';
+         html += '<label for="pq' + key + '-' + key + '">' +  val.job_title;
+         html += '<div class="pull-right lib_badges">' + sq_badge + wpp_badge + wva_badge + '</div>';
+
+         html += '</label></dd>';
+       });
+
+         $('.radio-list-left').append(html);
+     });
+
+
+     $('#presets_form').on('change', function() {
+        var checked_item = $('input[name="presets"]:checked'),
+            data_sq = checked_item.data('sq'),
+            data_wpp = checked_item.data('wpp'),
+            data_wva = checked_item.data('wva'),
+            data_job = 'Job Title: <span class="job_title_lib">' + checked_item.data('job') + '</span>';
+
+            $('.sq_checked_lib').html(data_sq);
+            $('.wpp_checked_lib').html(data_wpp);
+            $('.wva_checked_lib').html(data_wva);
+            $('.job_title_name').html(data_job);
+
+        console.log(data_sq);
+        console.log(data_wpp);
+        console.log(data_wva);
+     });
+
+     // modal end -- //
 
 
 
@@ -1117,11 +1171,13 @@
             $('#seq_modal').modal('hide');
         });
 
-
-    $('.tooltip_generator').tooltip({
+    $('.second_step').tooltip({
         container: 'body'
     });
-    $('.tooltip_url').tooltip({
+    $('.third_step').tooltip({
+        container: 'body'
+    });
+    $('.close_modal').tooltip({
         container: 'body'
     });
 

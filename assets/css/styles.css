@@ -130,6 +130,12 @@ body {
 .greenCo{
     color: #067e55;
 }
+.orangeCo{
+  color: #E36C09
+}
+.blueCo{
+  color: #3A7BBD;
+}
 .redCo{
     color: red;
 }
@@ -152,6 +158,12 @@ body {
     float: none;
     display: table-cell;
     vertical-align: middle;
+}
+.opacity03{
+  opacity: 0.3;
+}
+.opacity05{
+  opacity: 0.5;
 }
 
 
@@ -381,7 +393,7 @@ input#wpp_hidden, input#sq_hidden, input#wva_hidden{
   box-shadow: none;
   border: none;
   border-radius: 0;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
   text-align: center;
 }
 .modal-header{
@@ -413,31 +425,15 @@ h4.modal-title{
   font-size: 22px;
   margin: 20px;
 }
-.modal-body p{
-  margin: 50px 20px 20px;
-
-}
 .modal-footer{
   text-align: center;
-  /* margin: 30px 20px 20px; */
 }
-/*
-.modal-footer a{
-  padding: 10px 16px;
-  background: #f2422d;
-  color: #fff;
-  font-family: "Regular", sans-serif;
-  font-weight: 600;
-}
-.modal-footer a:hover{
-  text-decoration: none;
-  background: #F26D2D;
-} */
-/* .modal_footer_btns, */
+
+.modal_footer_btns,
 .second, .third{
     display: none;
 }
-.modal_steps i, .modal-footer i{
+.modal_steps i{
   margin-right: 10px;
 }
 .error_container{
@@ -497,6 +493,108 @@ span.button_text{
   top: 50%;
   right: 0;
   width: 50px;
+}
+
+/* -- Librarires -- */
+.elements{
+  background-color: #fff;
+  border: 1px solid #aaa;
+}
+.radio-list-left input[type="radio"]{
+  opacity: 0;
+  float: left;
+  width: 1px;
+  margin: 0;
+}
+dl.radio-list-left dd label:hover{
+    cursor: pointer;
+    background-color: #ededed;
+}
+.radio-list-left input[type="radio"] + label{
+  position: relative;
+  margin: 0;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: #222;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.radio-list-left input[type="radio"] + label:before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  background: #ddd;
+  border: 1px solid #aaa;
+}
+.radio-list-left input[type="radio"]:checked + label{
+  color: #2ea34e;
+  background-color: rgba(0,148,255,0.2);
+}
+.radio-list-left input[type="radio"]:checked + label:before{
+  background: #3dc863;
+  border-color: #2ea44e;
+}
+.radio-list-left input[type="radio"]:disabled + label{
+  color: #ccc;
+}
+.radio-list-left input[type="radio"]:disabled + label:before{
+  background: rgba(204, 204, 204, 0.5);
+  border: 2px dotted #ccc;
+}
+.radio-list-left input[type="radio"]:focus + label{
+  box-shadow: inset 0 0 3px #eee;
+}
+dl {
+  /* max-width: 350px; */
+  margin: 5px auto;
+}
+dl dt {
+  margin: 3em 0 5px;
+  font-size: 18px;
+}
+dl dd {
+  margin: 0;
+}
+.radio-list-left input[type="radio"] + label {
+  padding-left: 50px;
+  text-align: left;
+}
+.radio-list-left input[type="radio"] + label:before {
+  height: 20px;
+  width: 20px;
+  margin-top: -11px;
+  left: 10px;
+  border-radius: 100%;
+}
+.sq_badge, .wpp_badge, .wva_badge{
+  font-size: 11px;
+  padding: 3px 5px;
+  margin-right: 3px;
+}
+.sq_badge{
+  background-color: #067e55;
+}
+.wpp_badge{
+  background-color: #3A7BBD;
+}
+.wva_badge{
+  background-color: #E36C09;
+}
+.job_title_name{
+  text-align: center;
+  height: 20px;
+  color: #404040;
+  background-color: rgba(0,148,255,0.2);
+}
+.job_title_lib{
+  color: #0026FF;
+  font-weight: bold;
+  text-align: center;
+}
+.third .media-body{
+  vertical-align: middle;
+  font-weight: bold;
 }
 
 /****** media queries ******/
@@ -609,6 +707,18 @@ span.button_text{
     }
     .pT15{
         padding-top: 10px;
+    }
+    .lib_badges{
+      display: none;
+    }
+    .third .media-body{
+      -ms-word-break: break-all;
+          word-break: break-all;
+           word-break: break-word;
+          -webkit-hyphens: auto;
+             -moz-hyphens: auto;
+              -ms-hyphens: auto;
+                  hyphens: auto;
     }
 }
 
