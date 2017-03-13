@@ -165,6 +165,10 @@ body {
 .opacity05{
   opacity: 0.5;
 }
+.unbind_click{
+  opacity: 0.3;
+  cursor: auto;
+}
 
 
 h1{
@@ -254,6 +258,7 @@ p.squences span{
     font-weight: bold;
     background: #ccc;
     border: 1px solid transparent;
+    height: 20px;
 }
 .redBorder{
     border: 1px solid red;
@@ -585,12 +590,16 @@ dl dd {
   text-align: center;
   height: 20px;
   color: #404040;
-  background-color: rgba(0,148,255,0.2);
+  /* background-color: rgba(0,148,255,0.2); */
+  background-color: #c3c3c3;
 }
 .job_title_lib{
-  color: #0026FF;
+  color: #08197D;
   font-weight: bold;
   text-align: center;
+}
+.third .media{
+  background-color: #ddd;
 }
 .third .media-body{
   vertical-align: middle;

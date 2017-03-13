@@ -64,7 +64,9 @@
                             <span class="input-group-addon job_title_chars">30</span>
                         </div>
                         <hr>
-                        <a href="#" class="btn btn-primary btn-lg btn-block single_generator_btn"><i class="fa fa-sliders" aria-hidden="true"></i> Generator</a>
+                        <a href="#" class="btn btn-primary btn-block single_generator_btn"><i class="fa fa-sliders" aria-hidden="true"></i> Generator</a>
+
+                        <a href="#" class="btn btn-info btn-block single_library_btn"><i class="fa fa-gears" aria-hidden="true"></i> Library</a>
                         <!-- <a href="#" target="_blank" class="btn btn-danger btn-sm btn-block external_url"><i class="fa fa-external-link" aria-hidden="true"></i> Try it for yourself!</a> -->
                     </div>
                 </div> <!-- ./sm-3 -->
@@ -1009,7 +1011,7 @@
                                 <a href="#" class="btn btn-primary btn-md" id="second_step"><i class="fa fa-sliders"></i> I HAVE A BENCHMARK CODE</a>
                             </div>
                             <div class="col-xs-12 col-md-6">
-                                <a href="#" class="btn btn-warning btn-md" id="third_step"><i class="fa fa-gears"></i> LIBRARY</a>
+                                <a href="#" class="btn btn-info btn-md" id="third_step"><i class="fa fa-gears"></i> FROM LIBRARY</a>
                             </div>
                             <div class="col-xs-12 m10">
                             - OR -
@@ -1062,12 +1064,12 @@
                     <div class="third modal_steps">
                         <h4 class="modal-title" data-step="3">Libraries <i class="fa fa-gears"></i></h4>
                         <div class="row">
+                            <form id="presets_form">
                             <div class="col-md-6">
                                 <p><span class="help-block">Library List</span></p>
                                 <div class="elements">
-                                <form id="presets_form">
                                     <dl class="radio-list-left"></dl>
-                                </form>
+
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -1106,8 +1108,10 @@
                             </div>
 
                             <div class="col-xs-12">
-                                <a href="#" class="btn btn-info btn-lg m10"><i class="fa fa-gears"></i> Use library</a>
+                                <button type="submit" class="btn btn-info btn-lg m10 use_lib"><i class="fa fa-gears"></i> Use library</button>
+                                <!-- <a href="#" class="btn btn-info btn-lg m10 use_lib"><i class="fa fa-gears"></i> Use library</a> -->
                             </div>
+                            </form>
                         </div>
                     </div><!-- ./third -->
 
@@ -1116,25 +1120,25 @@
                <div class="modal-footer">
                     <div class="row">
 
-                        <div class="modal_footer_insert modal_footer_btns">
+                        <div class="modal_footer_insert modal_footer_btns pull-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-info third_step" aria-label="" data-toggle="tooltip" title="Use Library">
                                     <i class="fa fa-gears"></i>
                                 </button>
-                                <button type="button" class="btn btn-default close_modal" aria-label="" data-toggle="tooltip" title="Continue With Default Values">
+                                <!-- <button type="button" class="btn btn-default close_modal" aria-label="" data-toggle="tooltip" title="Continue With Default Values">
                                     <i class="fa fa-mail-forward"></i>
-                                </button>
+                                </button> -->
                             </div>
                         </div>
 
-                        <div class="modal_footer_library modal_footer_btns">
+                        <div class="modal_footer_library modal_footer_btns pull-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary second_step" aria-label="" data-toggle="tooltip" title="Insert Benchmark Code Manually">
                                     <i class="fa fa-sliders"></i>
                                 </button>
-                                <button type="button" class="btn btn-default close_modal" aria-label="" data-toggle="tooltip" title="Continue With Default Values">
+                                <!-- <button type="button" class="btn btn-default close_modal" aria-label="" data-toggle="tooltip" title="Continue With Default Values">
                                     <i class="fa fa-mail-forward"></i>
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </div>

@@ -378,7 +378,7 @@
             $('#' + seq_wrapper_id + '_hidden').val(text);
     }
 
-    // onload (default) value
+    // -- onload (default) values -- //
     var default_sq = $('.sq_sequences').text().trim();
     var default_wpp = $('.wpp_sequences').text().trim();
     var default_wva = $('.wva_sequences').text().trim();
@@ -387,7 +387,7 @@
     $('#wva_hidden').val(default_wva);
     url_generator($('.external_url'), default_wpp, default_sq, default_wva, $('#job_title').val());
 
-    // clipping
+    // --- clipping -- //
     var clipboard = new Clipboard('#btn_sq', {
         text: function() {
             return document.getElementById('sq_hidden').value;
@@ -571,6 +571,15 @@
         $('#seq_modal').modal();
      });
 
+     $('.single_library_btn').on('click', function(e){
+        e.preventDefault();
+        $('.modal_steps').slideUp();
+        $('.modal_footer_btns').hide();
+        $('.third').slideDown().addClass('active').addClass('in');
+        $('.modal_footer_library').show();
+        $('#seq_modal').modal();
+     });
+
 
      // --- Libraries --- //
      $('.elements').slimScroll({
@@ -600,7 +609,11 @@
      });
 
 
+     // disable `USE LIBRARY` btn
+     $('.use_lib').prop('disabled', true);
+
      $('#presets_form').on('change', function() {
+        $('.use_lib').prop('disabled', false);
         var checked_item = $('input[name="presets"]:checked'),
             data_sq = checked_item.data('sq'),
             data_wpp = checked_item.data('wpp'),
@@ -611,11 +624,87 @@
             $('.wpp_checked_lib').html(data_wpp);
             $('.wva_checked_lib').html(data_wva);
             $('.job_title_name').html(data_job);
-
-        console.log(data_sq);
-        console.log(data_wpp);
-        console.log(data_wva);
      });
+
+
+     $('#presets_form').on('submit', function(e) {
+        e.preventDefault();
+        var checked_item = $('input[name="presets"]:checked'),
+            data_sq = checked_item.data('sq'),
+            data_wpp = checked_item.data('wpp'),
+            data_wva = checked_item.data('wva'),
+            data_job = checked_item.data('job'),
+            url_sq_data = checked_item.data('sq') ? checked_item.data('sq') : 'S257525752575257525752575',
+            i = 1, i_wpp = 1, i_wva = 1;
+
+            // insert job title first
+            $('#job_title').val(data_job);
+
+            // update hidden fields
+            $('#sq_hidden').val(data_sq);
+            $('#wpp_hidden').val(data_wpp);
+            $('#wva_hidden').val(data_wva);
+
+            // generate url
+            url_generator( $('.external_url'), data_wpp, url_sq_data, data_wva, data_job );
+
+
+
+            // convert sequences
+            var sq_convert = data_sq ? convert_sequence_full(data_sq) : '';
+            var wpp_convert = data_wpp ? convert_sequence_full(data_wpp) : '';
+            var wva_convert = data_wva ? convert_sequence_full(data_wva) : '';
+
+
+             console.log(data_sq);
+             console.log(data_wpp);
+             console.log(data_wva);
+             console.log(data_job);
+
+
+             if(sq_convert){
+                 $("#sq_wrapper_btn, #sq_wrapper").show();
+                 $('#btn_sq').prop('disabled', false);
+                 $.each(sq_convert, function(index, val){
+                     var current_slider = document.getElementById('sq_' + i);
+                     current_slider.noUiSlider.set(val);
+                     i++;
+                 });
+             }else{ // empty!
+                $("#sq_wrapper_btn, #sq_wrapper").hide();
+                $('#btn_sq').prop('disabled', true);
+             }
+
+             if(wpp_convert){
+                 $('#wpp_wrapper_btn, #wpp_wrapper').show();
+                 $('#btn_wpp').prop('disabled', false);
+                 $.each(wpp_convert, function(index, val){
+                     var current_slider_wpp = document.getElementById('wpp_' + i_wpp);
+                     current_slider_wpp.noUiSlider.set(val);
+                     i_wpp++;
+                 });
+             }else{
+                $('#wpp_wrapper_btn, #wpp_wrapper').hide();
+                $('#btn_wpp').prop('disabled', true);
+             }
+
+             if(wva_convert){
+                $('#wva_wrapper_btn, #wva_wrapper').show();
+                $('#btn_wva').prop('disabled', false);
+                 $.each(wva_convert, function(index, val){
+                     var current_slider_wva = document.getElementById('wva_' + i_wva);
+                     current_slider_wva.noUiSlider.set(val);
+                     i_wva++;
+                 });
+
+             }else{
+                $('#wva_wrapper_btn, #wva_wrapper').hide();
+                $('#btn_wva').prop('disabled', true);
+             }
+
+
+             $('#seq_modal').modal('hide');
+          });
 
      // modal end -- //
 
@@ -624,7 +713,7 @@
      // URL generator
      function url_generator(btn, wpp_code, sq_code, wva_code, job_title = ''){
         var j_t = {
-                w2t: $('#job_title').val()
+                w2t: encodeURIComponent(job_title)
             },
             param_title = $.param( j_t ),
             url = 'https://assessments.talentclick.com/s3/TCT155Benchmark?w2=' + wpp_code + '&' + param_title + '&s2=' + sq_code+ '&v2=' + wva_code;
@@ -749,13 +838,14 @@
 
     // S regex: ^[S][0-9]{24}$
     // W regex: ^[W][0-9]{28}$
-    // V regex: ^[S][0-9]{24}$
+    // V regex: ^[V][0-9]{24}$
     // $.validator.methods.pattern("AR1004",element,/^AR\d{4}$/)
 
     function set_slider(slider, sequence){
         slider.noUiSlider.set(sequence);
     }
 
+    // convenrt the clean sequence
     function convert_sequence(seq){
 
         var sub = seq.seq,
@@ -770,6 +860,22 @@
             }else{
                 seq_array.push([el_2[0], el_2[1]]);
             }
+        });
+
+        return seq_array;
+    }
+
+    // convert full (including leading letter) sequence
+    function convert_sequence_full(seq){
+
+        var sub = sub = seq.substring(1),
+            group_1 = sub.match(/.{1,4}/g),
+            seq_array = [];
+
+
+        group_1.forEach(function(el){
+            var el_2 = el.match(/.{1,2}/g);
+            seq_array.push([el_2[0], el_2[1]]);
         });
 
         return seq_array;
@@ -1172,13 +1278,16 @@
         });
 
     $('.second_step').tooltip({
-        container: 'body'
+        container: 'body',
+        trigger : 'hover'
     });
     $('.third_step').tooltip({
-        container: 'body'
+        container: 'body',
+        trigger : 'hover'
     });
     $('.close_modal').tooltip({
-        container: 'body'
+        container: 'body',
+        trigger : 'hover'
     });
 
 
