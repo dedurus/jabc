@@ -2,3 +2,4 @@ snippets
 node_modules
 gulpfile.js
 out
+npm-debug.log
