@@ -118,6 +118,9 @@ body {
 .grey{
     background: #BFBFBF;
 }
+.greyCo span{
+  color: #969696;
+}
 .blueBg{
     background: #3A7BBD;
 }

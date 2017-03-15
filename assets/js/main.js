@@ -634,7 +634,10 @@
             data_wpp = checked_item.data('wpp'),
             data_wva = checked_item.data('wva'),
             data_job = checked_item.data('job'),
-            url_sq_data = checked_item.data('sq') ? checked_item.data('sq') : 'S257525752575257525752575',
+            url_sq_data = checked_item.data('sq') ? checked_item.data('sq') : '',
+            url_wpp_data = checked_item.data('wpp') ? checked_item.data('wpp') : '',
+            url_wva_data = checked_item.data('wva') ? checked_item.data('wva') : '',
+            url_title_data = checked_item.data('job') ? checked_item.data('job') : '',
             i = 1, i_wpp = 1, i_wva = 1;
 
             // insert job title first
@@ -646,7 +649,8 @@
             $('#wva_hidden').val(data_wva);
 
             // generate url
-            url_generator( $('.external_url'), data_wpp, url_sq_data, data_wva, data_job );
+            url_generator( $('.external_url'), url_wpp_data, url_sq_data, url_wva_data, url_title_data );
+            //url_generator( $('.external_url'), data_wpp, url_sq_data, data_wva, data_job );
 
 
 
@@ -665,6 +669,7 @@
              if(sq_convert){
                  $("#sq_wrapper_btn, #sq_wrapper").show();
                  $('#btn_sq').prop('disabled', false);
+                 $('.sq_sequences').removeClass('greyCo');
                  $.each(sq_convert, function(index, val){
                      var current_slider = document.getElementById('sq_' + i);
                      current_slider.noUiSlider.set(val);
@@ -673,11 +678,13 @@
              }else{ // empty!
                 $("#sq_wrapper_btn, #sq_wrapper").hide();
                 $('#btn_sq').prop('disabled', true);
+                $('.sq_sequences').addClass('greyCo');
              }
 
              if(wpp_convert){
                  $('#wpp_wrapper_btn, #wpp_wrapper').show();
                  $('#btn_wpp').prop('disabled', false);
+                 $('.wpp_sequences').removeClass('greyCo');
                  $.each(wpp_convert, function(index, val){
                      var current_slider_wpp = document.getElementById('wpp_' + i_wpp);
                      current_slider_wpp.noUiSlider.set(val);
@@ -686,11 +693,13 @@
              }else{
                 $('#wpp_wrapper_btn, #wpp_wrapper').hide();
                 $('#btn_wpp').prop('disabled', true);
+                $('.wpp_sequences').addClass('greyCo');
              }
 
              if(wva_convert){
                 $('#wva_wrapper_btn, #wva_wrapper').show();
                 $('#btn_wva').prop('disabled', false);
+                $('.wva_sequences').removeClass('greyCo');
                  $.each(wva_convert, function(index, val){
                      var current_slider_wva = document.getElementById('wva_' + i_wva);
                      current_slider_wva.noUiSlider.set(val);
@@ -700,6 +709,7 @@
              }else{
                 $('#wva_wrapper_btn, #wva_wrapper').hide();
                 $('#btn_wva').prop('disabled', true);
+                $('.wva_sequences').addClass('greyCo');
              }
 
 
@@ -711,7 +721,20 @@
 
 
      // URL generator
-     function url_generator(btn, wpp_code, sq_code, wva_code, job_title = ''){
+     function url_generator(btn, wpp_code = '', sq_code = '', wva_code = '', job_title = ''){
+        var j_t = {
+                w2t: encodeURIComponent(job_title)
+            },
+            sq_param = sq_code ? ('&s2=' + sq_code) : '',
+            wpp_param = wpp_code ? ('&w2=' + wpp_code) : '',
+            wva_param = wva_code ? ('&v2=' + wva_code) : '',
+            param_title = job_title ? ('&' + $.param( j_t )) : '',
+            url = 'https://assessments.talentclick.com/s3/TCT155Benchmark?' + wpp_param  + param_title + sq_param  + wva_param;
+            console.log(sq_param);
+        btn.prop('href', url);
+     }
+
+     /*function url_generator(btn, wpp_code, sq_code, wva_code, job_title = ''){
         var j_t = {
                 w2t: encodeURIComponent(job_title)
             },
@@ -719,7 +742,7 @@
             url = 'https://assessments.talentclick.com/s3/TCT155Benchmark?w2=' + wpp_code + '&' + param_title + '&s2=' + sq_code+ '&v2=' + wva_code;
 
         btn.prop('href', url);
-     }
+     }*/
 
 
 
@@ -1209,8 +1232,11 @@
 
         // open containers
         if(valid_sq){
+            // enable dimension
             $('#sq_wrapper_btn').show();
             $('#btn_sq').prop('disabled', false);
+            $('.sq_sequences').removeClass('greyCo');
+
             $('#sq_wrapper').slideDown('sloq').promise().done(function() {
                 if( $('#sq_title_toggle').hasClass('glyphicon-chevron-right') ) {
                     $('#sq_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
@@ -1221,6 +1247,11 @@
         }
 
         if(valid_wpp){
+            // enable dimension
+            $('#wpp_wrapper_btn').show();
+            $('#btn_wpp').prop('disabled', false);
+            $('.wpp_sequences').removeClass('greyCo');
+
             $('#wpp_wrapper').slideDown('slow').promise().done(function() {
                 if( $('#wpp_title_toggle').hasClass('glyphicon-chevron-right') ) {
                     $('#wpp_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
@@ -1231,6 +1262,11 @@
         }
 
         if(valid_wva){
+            // enable dimension
+            $('#wva_wrapper_btn').show();
+            $('#btn_wva').prop('disabled', false);
+            $('.wva_sequences').removeClass('greyCo');
+
             $('#wva_wrapper').slideDown('slow').promise().done(function() {
                 if( $('#wva_title_toggle').hasClass('glyphicon-chevron-right') ) {
                     $('#wva_title_toggle').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
