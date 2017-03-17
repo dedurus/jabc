@@ -726,7 +726,7 @@
                 w2t: encodeURIComponent(job_title)
             },
             sq_param = sq_code ? ('&s2=' + sq_code) : '',
-            wpp_param = wpp_code ? ('&w2=' + wpp_code) : '',
+            wpp_param = wpp_code ? ('w2=' + wpp_code) : '',
             wva_param = wva_code ? ('&v2=' + wva_code) : '',
             param_title = job_title ? ('&' + $.param( j_t )) : '',
             url = 'https://assessments.talentclick.com/s3/TCT155Benchmark?' + wpp_param  + param_title + sq_param  + wva_param;
