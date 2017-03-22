@@ -1329,5 +1329,29 @@
     });
 
 
+    // prevent tab close
+    var hook = true;
+    window.onbeforeunload = function() {
+    if (hook) {
+      console.log('tab sclosing');
+      return "You have attempted to leave this page. Are you sure you want to exit this page?";
+    }
+    }
+    function unhook() {
+    hook=false;
+    }
+
+    window.onbeforeunload = confirmExit;
+    function confirmExit() {
+      return "You have attempted to leave this page. Are you sure you want to exit this page?";
+    }
+
+    window.addEventListener("beforeunload", function (e) {
+      var confirmationMessage = "You have attempted to leave this page. Are you sure you want to exit this page?";
+      console.log(confirmationMessage);
+      e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
+      return confirmationMessage;              // Gecko, WebKit, Chrome <34
+    });
+
 })();
 
