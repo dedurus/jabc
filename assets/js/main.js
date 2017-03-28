@@ -1329,8 +1329,8 @@
     });
 
 
-    // prevent tab close
-    var hook = true;
+    // prevent tab close (hmmm, cross-browser??)
+    /*var hook = true;
     window.onbeforeunload = function() {
     if (hook) {
       console.log('tab sclosing');
@@ -1349,9 +1349,41 @@
     window.addEventListener("beforeunload", function (e) {
       var confirmationMessage = "You have attempted to leave this page. Are you sure you want to exit this page?";
       console.log(confirmationMessage);
-      e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
-      return confirmationMessage;              // Gecko, WebKit, Chrome <34
+      e.returnValue = confirmationMessage;
+      return confirmationMessage;
+    });*/
+
+   /* $(window).on('beforeunload', function(){
+        return 'Are you sure you want to leave?';
     });
+
+    $(window).on('unload', function(){
+        console.log('unloaded');
+    });*/
+
+    function tab_close(){
+        var showMsgTimer;
+
+        window.onbeforeunload = function(evt) {
+            var message = 'Please Stay on this page and we will show you a secret text.';
+            showMsgTimer = window.setTimeout(showMessage, 500);
+
+            evt = evt || window.evt;
+            evt.returnValue = message;
+
+            return message;
+        }
+
+        window.onunload = function () {
+            clearTimeout(showMsgTimer);
+        }
+
+        function showMessage() {
+            alert("You've been trolled!");
+        }
+    }
+
+    tab_close();
 
 })();
 
